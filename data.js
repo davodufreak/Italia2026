@@ -171,27 +171,27 @@ const DATA = {
   accommodations: [
     {
       city: "zurich",
-      name: null,
+      name: "Room in Zürich (Airbnb)",
       address: null,
       checkin: "2026-09-18",
       checkout: "2026-09-20",
       nights: 2,
       confirmation: null,
       phone: null,
-      notes: null,
+      notes: "Anfitrión: Cristian · Check-in 2:00 PM · Checkout 11:00 AM · Solicitud enviada, pendiente de aprobación del anfitrión.",
       status: "pending"
     },
     {
       city: "milan",
-      name: null,
-      address: null,
+      name: "Home in Milan — Loft in Fashion District (Airbnb)",
+      address: "Corso Venezia 6, Milán",
       checkin: "2026-09-20",
       checkout: "2026-09-21",
       nights: 1,
       confirmation: null,
       phone: null,
-      notes: null,
-      status: "pending"
+      notes: "Anfitrión: Sergio Borroni · Check-in 2:00 PM · Checkout 11:00 AM.",
+      status: "confirmed"
     },
     {
       city: "venecia",
@@ -271,15 +271,15 @@ const DATA = {
       to: "Milán",
       to_station: "Milano Centrale",
       date: "2026-09-20",
-      departure: null,
-      arrival: null,
-      operator: "SBB / Trenitalia",
+      departure: "08:33",
+      arrival: "11:50",
+      operator: "Trainline",
       train_number: null,
       car: null,
       seat: null,
       class: null,
-      confirmation: null,
-      status: "pending"
+      confirmation: "BYYSAN",
+      status: "confirmed"
     },
     {
       type: "train",
@@ -372,6 +372,20 @@ const DATA = {
   // status: "confirmed" | "pending" | "unavailable"
   // priority: "urgent" | "normal" | "low"
   tickets: [
+    // MILÁN
+    {
+      city: "milan",
+      name: "Visita guiada por Milán + La Última Cena",
+      date: "2026-09-20",
+      time: "14:15",
+      confirmation: "A39925693",
+      price: null,
+      status: "confirmed",
+      priority: "normal",
+      booking_deadline: null,
+      booking_url: null,
+      notes: "2 viajeros · 3 horas · Punto de encuentro: Galleria Vittorio Emanuele II, 11/12 · Presentar reserva en el móvil."
+    },
     // FLORENCIA
     {
       city: "florencia",

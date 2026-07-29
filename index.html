@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zúrich → Roma · David 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ░░ SIDEBAR NAV (desktop) ░░ -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <span class="nav-eyebrow">Guía de viaje</span>
+      <h1 class="nav-title">ZRH<span class="nav-arrow">→</span>FCO</h1>
+      <p class="nav-sub">David · Sep–Oct 2026</p>
+    </div>
+
+    <div class="city-strip" id="cityStrip"></div>
+
+    <ul class="nav-items">
+      <li><button class="nav-btn active" data-section="resumen">
+        <span class="nav-icon">◈</span><span>Resumen</span>
+      </button></li>
+      <li><button class="nav-btn" data-section="itinerario">
+        <span class="nav-icon">◷</span><span>Itinerario</span>
+      </button></li>
+      <li><button class="nav-btn" data-section="hospedajes">
+        <span class="nav-icon">◻</span><span>Hospedajes</span>
+      </button></li>
+      <li><button class="nav-btn" data-section="traslados">
+        <span class="nav-icon">⟶</span><span>Traslados</span>
+      </button></li>
+      <li><button class="nav-btn" data-section="entradas">
+        <span class="nav-icon">◇</span><span>Entradas</span>
+      </button></li>
+    </ul>
+
+    <div class="sidebar-footer">
+      <div class="countdown-widget" id="countdownWidget"></div>
+    </div>
+  </nav>
+
+  <!-- ░░ MAIN CONTENT ░░ -->
+  <main class="main" id="main">
+    <div class="section active" id="section-resumen"></div>
+    <div class="section" id="section-itinerario"></div>
+    <div class="section" id="section-hospedajes"></div>
+    <div class="section" id="section-traslados"></div>
+    <div class="section" id="section-entradas"></div>
+  </main>
+
+  <!-- ░░ BOTTOM NAV (mobile) ░░ -->
+  <nav class="bottom-nav" id="bottomNav">
+    <button class="bnav-btn active" data-section="resumen"><span>◈</span><span>Resumen</span></button>
+    <button class="bnav-btn" data-section="itinerario"><span>◷</span><span>Itinerario</span></button>
+    <button class="bnav-btn" data-section="hospedajes"><span>◻</span><span>Hospedajes</span></button>
+    <button class="bnav-btn" data-section="traslados"><span>⟶</span><span>Traslados</span></button>
+    <button class="bnav-btn" data-section="entradas"><span>◇</span><span>Entradas</span></button>
+  </nav>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

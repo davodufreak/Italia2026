@@ -29,11 +29,15 @@ const DATA = {
   days: [
     {
       date: "2026-09-18", weekday: "Vie", city: "zurich",
-      label: "Llegada",
+      label: "Llegada + Lindt",
       activities: [
-        { time: "Tarde",       icon: "✈️", text: "Aterrizaje en Zúrich (ZRH). Check-in y descanso." },
-        { time: "Tarde-noche", icon: "🚶", text: "Paseo ligero por el Altstadt si llegaste temprano." },
-        { time: "Noche",       icon: "🍷", text: "Cena en el barrio de Niederdorf." },
+        { time: "10:05",    icon: "✈️", text: "Aterrizaje en Zúrich (ZRH). Migración y equipaje ~1h." },
+        { time: "11:15",    icon: "🚆", text: "Tren ZRH → Zürich HB (13 min, sale cada 10 min). Deja maletas en el Airbnb o en consigna de HB." },
+        { time: "12:30",    icon: "🥨", text: "Almuerzo rápido cerca de la estación." },
+        { time: "13:30",    icon: "🍫", text: "Lindt Home of Chocolate (Kilchberg) — fuente de chocolate de 9 m, museo y degustación. Tren S8/S24 hasta Kilchberg (~15 min). Reserva franja horaria online." },
+        { time: "15:30",    icon: "🏠", text: "Check-in en Brauerstrasse 42 (a partir de las 3:00 PM). Descanso." },
+        { time: "17:30",    icon: "🚶", text: "Paseo por el Altstadt y Lindenhof al atardecer." },
+        { time: "Noche",    icon: "🍷", text: "Cena en el barrio de Niederdorf." },
       ]
     },
     {
@@ -48,12 +52,16 @@ const DATA = {
     },
     {
       date: "2026-09-20", weekday: "Dom", city: "milan",
-      label: "Tránsito estratégico",
+      label: "Milán + La Última Cena",
       activities: [
-        { time: "Mañana",   icon: "🚄", text: "Tren desde Zúrich. Llega a Milán Centrale ~mediodía." },
-        { time: "Tarde",    icon: "🏰", text: "Duomo di Milano y azotea con vistas panorámicas." },
-        { time: "Tarde",    icon: "🛍️", text: "Gallería Vittorio Emanuele II." },
-        { time: "Noche",    icon: "🍸", text: "Aperitivo milanés en el barrio de los Navigli." },
+        { time: "08:33",    icon: "🚄", text: "Tren Zürich HB → Milano Centrale (BYYSAN). Checkout del Airbnb a las 10:00 AM… salir antes." },
+        { time: "11:50",    icon: "🛬", text: "Llegada a Milano Centrale." },
+        { time: "12:15",    icon: "🏠", text: "Metro M1 a Palestro/San Babila → Corso Venezia 6. Dejar maletas (check-in formal 2:00 PM)." },
+        { time: "13:00",    icon: "🍝", text: "Almuerzo ligero cerca de Corso Venezia. NO te demores." },
+        { time: "14:15",    icon: "🎟️", text: "TOUR CIVITATIS (A39925693) — punto de encuentro: Galleria Vittorio Emanuele II, 11/12. Llega 15 min antes." },
+        { time: "14:15–17:15", icon: "🖼️", text: "Visita guiada por Milán + La Última Cena de Leonardo (Santa Maria delle Grazie). Incluye Duomo y Galleria por fuera." },
+        { time: "17:30",    icon: "⛪", text: "Opcional: subir a la azotea del Duomo (última entrada ~18:10) si el tour no la incluyó." },
+        { time: "19:30",    icon: "🍸", text: "Aperitivo milanés en los Navigli." },
       ]
     },
     {
@@ -161,7 +169,19 @@ const DATA = {
         { time: "Mañana",   icon: "🌿", text: "Galería Borghese (reserva obligatoria — grupos de 2h)." },
         { time: "Mediodía", icon: "🛍️", text: "Campo de' Fiori — mercado matutino." },
         { time: "Tarde",    icon: "🍦", text: "Última passeggiata — gelato y espresso." },
-        { time: "Noche",    icon: "🥂", text: "Cena de despedida en Testaccio o Pigneto." },
+        { time: "Noche",    icon: "🥂", text: "Cena de despedida en Testaccio o Pigneto. No te desveles: el vuelo sale temprano." },
+        { time: "Antes de dormir", icon: "🧳", text: "Maleta lista y check-in online de Air Canada (CVQ8TR)." },
+      ]
+    },
+    {
+      date: "2026-10-01", weekday: "Jue", city: "roma",
+      label: "Regreso a casa",
+      activities: [
+        { time: "07:00",    icon: "⏰", text: "Despertar y checkout del hospedaje." },
+        { time: "07:45",    icon: "🚆", text: "Leonardo Express desde Roma Termini → Fiumicino (32 min, sale cada 15 min)." },
+        { time: "08:30",    icon: "🛄", text: "Llegada a FCO. Documentación y control de seguridad (~3h de margen)." },
+        { time: "11:30",    icon: "✈️", text: "AC 893 Roma FCO → Montréal YUL. Llega 14:30." },
+        { time: "20:25",    icon: "✈️", text: "AC 995 Montréal YUL → Ciudad de México. Llega 23:55. Escala de 5h 55m." },
       ]
     },
   ],
@@ -171,15 +191,15 @@ const DATA = {
   accommodations: [
     {
       city: "zurich",
-      name: "Room in Zürich (Airbnb)",
-      address: null,
+      name: "Room in Zürich (Airbnb) — habitación céntrica con balcón",
+      address: "Brauerstrasse 42, Zúrich",
       checkin: "2026-09-18",
       checkout: "2026-09-20",
       nights: 2,
       confirmation: null,
       phone: null,
-      notes: "Anfitrión: Cristian · Check-in 2:00 PM · Checkout 11:00 AM · Solicitud enviada, pendiente de aprobación del anfitrión.",
-      status: "pending"
+      notes: "Anfitrión: David · Check-in 3:00 PM · Checkout 10:00 AM.",
+      status: "confirmed"
     },
     {
       city: "milan",
@@ -253,16 +273,17 @@ const DATA = {
       from_code: "MEX",
       to: "Zúrich",
       to_code: "ZRH",
-      date: "2026-09-18",
-      departure: null,
-      arrival: null,
-      airline: null,
-      flight_number: null,
+      date: "2026-09-17",
+      departure: "11:55",
+      arrival: "10:05 (+1 día, 18 sep)",
+      airline: "Air Canada",
+      flight_number: "AC 1886 (MEX→YYZ) + AC 880 (YYZ→ZRH)",
       terminal: null,
       seat: null,
       baggage: null,
-      confirmation: null,
-      status: "pending"
+      confirmation: "CVQ8TR",
+      status: "confirmed",
+      notes: "Escala en Toronto YYZ (1h 25m). Sale 17 sep 11:55, llega Zúrich 18 sep 10:05 (día siguiente)."
     },
     {
       type: "train",
@@ -356,15 +377,16 @@ const DATA = {
       to: "Ciudad de México",
       to_code: "MEX",
       date: "2026-10-01",
-      departure: null,
-      arrival: null,
-      airline: null,
-      flight_number: null,
+      departure: "11:30",
+      arrival: "23:55",
+      airline: "Air Canada",
+      flight_number: "AC 893 (FCO→YUL) + AC 995 (YUL→MEX)",
       terminal: null,
       seat: null,
       baggage: null,
-      confirmation: null,
-      status: "confirmed"  // ← Ya comprado (el user mencionó que tiene vuelos)
+      confirmation: "CVQ8TR",
+      status: "confirmed",
+      notes: "Escala en Montréal YUL (5h 55m). Mismo día, sale Roma 11:30, llega CDMX 23:55."
     },
   ],
 
@@ -372,6 +394,20 @@ const DATA = {
   // status: "confirmed" | "pending" | "unavailable"
   // priority: "urgent" | "normal" | "low"
   tickets: [
+    // ZÚRICH
+    {
+      city: "zurich",
+      name: "Lindt Home of Chocolate",
+      date: "2026-09-18",
+      time: "13:30",
+      confirmation: null,
+      price: "~CHF 15",
+      status: "pending",
+      priority: "low",
+      booking_deadline: "Flexible",
+      booking_url: "https://www.lindt-home-of-chocolate.com",
+      notes: "Entrada por franja horaria. En Kilchberg — tren S8/S24 desde Zürich HB (~15 min). Incluye degustación."
+    },
     // MILÁN
     {
       city: "milan",

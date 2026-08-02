@@ -11,6 +11,15 @@
 </head>
 <body>
 
+  <!-- ░░ BOTÓN ACTUALIZAR ░░ -->
+  <button class="refresh-btn" id="refreshBtn" aria-label="Actualizar contenido" title="Traer los últimos cambios">
+    <svg class="refresh-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M20 11A8 8 0 1 0 18.4 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <polyline points="20 5 20 11 14 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="refresh-label">Actualizar</span>
+  </button>
+
   <!-- ░░ SIDEBAR NAV (desktop) ░░ -->
   <nav class="sidebar" id="sidebar">
     <div class="sidebar-header">
@@ -61,6 +70,60 @@
     <button class="bnav-btn" data-section="traslados"><span>⟶</span><span>Traslados</span></button>
     <button class="bnav-btn" data-section="entradas"><span>◇</span><span>Entradas</span></button>
   </nav>
+
+  <!-- Lógica del botón Actualizar — inline a propósito: debe funcionar
+       aunque app.js esté servido desde una versión vieja en caché. -->
+  <script>
+  (function () {
+    var btn = document.getElementById('refreshBtn');
+    if (!btn) return;
+
+    btn.addEventListener('click', function () {
+      if (btn.classList.contains('is-loading')) return;
+      btn.classList.remove('is-error');
+      btn.classList.add('is-loading');
+
+      var stamp = Date.now();
+      var assets = ['data.js', 'app.js', 'styles.css', 'index.html'];
+
+      Promise.resolve()
+        // 1. Vaciar Cache Storage (si el navegador lo expone)
+        .then(function () {
+          if (!('caches' in window)) return;
+          return caches.keys().then(function (keys) {
+            return Promise.all(keys.map(function (k) { return caches.delete(k); }));
+          });
+        })
+        // 2. Desregistrar service workers viejos
+        .then(function () {
+          if (!('serviceWorker' in navigator)) return;
+          return navigator.serviceWorker.getRegistrations().then(function (regs) {
+            return Promise.all(regs.map(function (r) { return r.unregister(); }));
+          });
+        })
+        // 3. Re-descargar los archivos saltándose la caché HTTP
+        .then(function () {
+          return Promise.all(assets.map(function (f) {
+            return fetch(f + '?cb=' + stamp, { cache: 'reload' }).then(function (r) {
+              if (!r.ok) throw new Error(f + ': ' + r.status);
+            });
+          }));
+        })
+        // 4. Recargar con parámetro nuevo para forzar HTML fresco
+        .then(function () {
+          var base = location.pathname.replace(/[?#].*$/, '');
+          location.replace(base + '?v=' + stamp);
+        })
+        .catch(function () {
+          // Sin conexión o el servidor no respondió: no recargamos,
+          // para no dejar la pantalla en blanco.
+          btn.classList.remove('is-loading');
+          btn.classList.add('is-error');
+          setTimeout(function () { btn.classList.remove('is-error'); }, 2600);
+        });
+    });
+  })();
+  </script>
 
   <script src="data.js"></script>
   <script src="app.js"></script>

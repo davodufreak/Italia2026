@@ -1008,9 +1008,97 @@ h3 { font-size: 1.1rem; }
    RESPONSIVE
 ══════════════════════════════════════════════════════════ */
 
+
+/* ── Botón Actualizar ─────────────────────────────────────── */
+.refresh-btn {
+  position: fixed;
+  top: calc(env(safe-area-inset-top, 0px) + 16px);
+  right: calc(env(safe-area-inset-right, 0px) + 20px);
+  z-index: 200;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px 8px 11px;
+
+  background: rgba(18,18,30,0.82);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border-mid);
+  border-radius: 999px;
+
+  color: var(--text-sec);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  transition: color .2s ease, border-color .2s ease, background .2s ease, transform .15s ease;
+}
+
+.refresh-btn:hover {
+  color: var(--gold-light);
+  border-color: var(--gold);
+  background: rgba(26,26,44,0.9);
+}
+
+.refresh-btn:active { transform: scale(0.96); }
+
+.refresh-btn:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.refresh-icon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  transform-origin: 50% 50%;
+}
+
+.refresh-label { line-height: 1; }
+
+/* Estado: cargando */
+.refresh-btn.is-loading {
+  color: var(--gold);
+  border-color: var(--gold-dim);
+  pointer-events: none;
+}
+.refresh-btn.is-loading .refresh-icon {
+  animation: refresh-spin .8s linear infinite;
+}
+
+@keyframes refresh-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Estado: error (sin conexión) */
+.refresh-btn.is-error {
+  color: var(--urgent);
+  border-color: var(--urgent);
+}
+.refresh-btn.is-error .refresh-label::after {
+  content: ' · sin conexión';
+  text-transform: none;
+  letter-spacing: 0;
+}
+
 @media (max-width: 768px) {
   .sidebar { display: none; }
   .main { margin-left: 0; }
+
+  .refresh-btn {
+    top: calc(env(safe-area-inset-top, 0px) + 12px);
+    right: calc(env(safe-area-inset-right, 0px) + 14px);
+    padding: 9px;
+    gap: 0;
+  }
+  .refresh-btn .refresh-label { display: none; }
+  .refresh-btn.is-error .refresh-label { display: inline; }
+  .refresh-btn.is-error { padding: 9px 13px 9px 10px; gap: 7px; }
+  .refresh-btn.is-error .refresh-label::after { content: 'Sin conexión'; }
   .bottom-nav { display: flex; }
 
   .section { padding: 24px 16px 100px; }

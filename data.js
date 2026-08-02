@@ -325,17 +325,17 @@ const DATA = {
       from_station: "Venezia Santa Lucia",
       to: "Florencia",
       to_station: "Firenze S.M.N.",
-      date: "2026-08-23",
+      date: "2026-09-23",
       departure: "09:26",
       arrival: "11:39",
       operator: "Trenitalia",
       train_number: "Frecciarossa 9411",
-      car: "6",
-      seat: "1D",
-      class: "2° Standard",
+      car: "8",
+      seat: "3D, 4D",
+      class: "Base/Standard",
       confirmation: "EQA655",
       status: "confirmed",
-      notes: "⚠️ El billete indica 23 de agosto de 2026 — revisar, el itinerario tiene este tramo el 23 de septiembre. Número de título: 2911539803."
+      notes: "2 pasajeros: José David Hurtado Santiago (8/3D, CP 751804) y Luis Angel Martinez Rodriguez (8/4D, CP 751803). Eur 57.00 c/u."
     },
     {
       type: "train",

@@ -309,15 +309,15 @@ const DATA = {
       to: "Venecia",
       to_station: "Venezia Santa Lucia",
       date: "2026-09-21",
-      departure: null,
-      arrival: null,
-      operator: "Frecciarossa / Italo",
-      train_number: null,
+      departure: "09:45",
+      arrival: "12:12",
+      operator: "Trenitalia",
+      train_number: "9717",
       car: null,
       seat: null,
       class: null,
-      confirmation: null,
-      status: "pending"
+      confirmation: "2910718212",
+      status: "confirmed"
     },
     {
       type: "train",

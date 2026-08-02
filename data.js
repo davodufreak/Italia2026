@@ -215,15 +215,15 @@ const DATA = {
     },
     {
       city: "venecia",
-      name: null,
-      address: null,
+      name: "Casa del Pozzo",
+      address: "Cannaregio 4151 Ruga do Pozzi, Cannaregio, 30121 Venice, Italy",
       checkin: "2026-09-21",
       checkout: "2026-09-23",
       nights: 2,
       confirmation: null,
       phone: null,
-      notes: null,
-      status: "pending"
+      notes: "Reservado vía Booking.com · Check-in 1:30 p.m. - 11:30 p.m. · Checkout 5:00 a.m. - 11:00 a.m.",
+      status: "confirmed"
     },
     {
       city: "florencia",

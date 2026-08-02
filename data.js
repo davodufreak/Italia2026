@@ -452,6 +452,19 @@ const DATA = {
     // VENECIA
     {
       city: "venecia",
+      name: "Excursión a Murano y Burano + Visita a un taller de vidrio",
+      date: "2026-08-22",
+      time: "10:30",
+      confirmation: "A40569872",
+      price: null,
+      status: "confirmed",
+      priority: "urgent",
+      booking_deadline: null,
+      booking_url: null,
+      notes: "⚠️ La reserva indica 22 de agosto de 2026 — revisar, el itinerario tiene Venecia el 21–22 de septiembre. 2 viajeros · 4h 30m · Punto de encuentro frente al Palazzo Cornoldi (Riva degli Schiavoni, 4136, 30122 Venezia VE), 10 min antes: https://maps.app.goo.gl/CRNp3QtVF7J3vUqt9. Llevar zapatos cómodos."
+    },
+    {
+      city: "venecia",
       name: "Palazzo Ducale (Museos Piazza San Marco)",
       date: "2026-09-22",
       time: null,

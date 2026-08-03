@@ -66,6 +66,60 @@
     return `<span class="hotel-confirmation">${text}</span>`;
   }
 
+  function stripAccents(s) {
+    return (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '');
+  }
+
+  function matchesCity(text, city) {
+    if (!text) return false;
+    return stripAccents(text).toLowerCase().includes(stripAccents(city.name).toLowerCase());
+  }
+
+  // Deduce el traslado de llegada / salida de una ciudad a partir del
+  // listado de transportes, sin necesidad de asociarlos manualmente.
+  function arrivalFor(city) {
+    return DATA.transports.find(t => matchesCity(t.to, city));
+  }
+
+  function departureFor(city) {
+    return DATA.transports.find(t => matchesCity(t.from, city));
+  }
+
+  function accommodationForCity(cityId) {
+    return DATA.accommodations.find(a => a.city === cityId);
+  }
+
+  function transportTypeIcon(type) {
+    if (type === 'flight') return '✈️';
+    if (type === 'train')  return '🚄';
+    if (type === 'ferry')  return '⛴️';
+    return '📍';
+  }
+
+  function countryFlag(country) {
+    const map = { 'Suiza': '🇨🇭', 'Italia': '🇮🇹' };
+    return map[country] || '';
+  }
+
+  // Extrae un dato puntual (p. ej. "Check-in 3:00 PM") de un texto libre
+  // de notas, sin requerir campos de datos adicionales. Solo reconoce la
+  // etiqueta al inicio de una cláusula (inicio de texto o tras "·") para
+  // no confundirla con una mención casual dentro de una oración.
+  function extractField(notes, label, requireColon) {
+    if (!notes) return null;
+    const colonPart = requireColon ? ':' : ':?';
+    const re = new RegExp('(?:^|·)\\s*' + label + '\\s*' + colonPart + '\\s*([^·]+)', 'i');
+    const m = notes.match(re);
+    if (!m) return null;
+    return m[1].trim().replace(/\.$/, '');
+  }
+
+  function heroGradient(hex) {
+    return `radial-gradient(120% 140% at 15% 10%, ${hex}4D, transparent 60%), ` +
+           `radial-gradient(140% 160% at 100% 100%, ${hex}26, transparent 55%), ` +
+           `linear-gradient(165deg, #1b1f2b 0%, #14161c 100%)`;
+  }
+
   // ── City Strip ────────────────────────────────────────────
   function renderCityStrip() {
     const el = document.getElementById('cityStrip');
@@ -92,6 +146,197 @@
   // ══════════════════════════════════════════════════════════
   // SECTION: RESUMEN
   // ══════════════════════════════════════════════════════════
+
+  // Determina automáticamente la próxima parada pendiente del viaje
+  // comparando la fecha actual con el checkout de cada hospedaje.
+  // No requiere configuración manual: si el checkout de una ciudad ya
+  // pasó, se avanza a la siguiente.
+  function computeNextStop() {
+    const now = new Date();
+    for (let i = 0; i < DATA.cities.length; i++) {
+      const city = DATA.cities[i];
+      const accommodation = accommodationForCity(city.id);
+      const checkout = accommodation ? new Date(accommodation.checkout + 'T23:59:59') : null;
+      if (!checkout || now <= checkout) {
+        return { city, index: i, accommodation };
+      }
+    }
+    return null;
+  }
+
+  function cityQuickLinksHTML(cityId) {
+    const tix = DATA.tickets.filter(t => t.city === cityId && t.booking_url);
+    if (!tix.length) return '';
+    return `
+      <div class="stop-expand-block">
+        <span class="stop-expand-label">Enlaces rápidos</span>
+        <div class="stop-expand-links">
+          ${tix.map(t => `<a class="stop-expand-link" href="${t.booking_url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${t.name} ↗</a>`).join('')}
+        </div>
+      </div>`;
+  }
+
+  function renderStopHero() {
+    const stop = computeNextStop();
+
+    if (!stop) {
+      return `
+        <div class="stop-hero stop-hero--done mb-32">
+          <div class="stop-hero-photo" style="background:${heroGradient('#B7A9F0')}">
+            <div class="stop-hero-overlay"></div>
+            <span class="stop-hero-photo-glyph">🎉</span>
+            <div class="stop-hero-top">
+              <span class="stop-hero-badge">Viaje completado</span>
+            </div>
+            <div class="stop-hero-title-wrap">
+              <h1 class="stop-hero-title">¡Bienvenido de vuelta!</h1>
+              <p class="stop-hero-country">13 noches · 6 ciudades · un viaje inolvidable</p>
+            </div>
+          </div>
+        </div>`;
+    }
+
+    const { city, index, accommodation } = stop;
+    const hex = cityColorHex(city.id);
+    const acc = accommodation || {};
+    const isLastCity = index === DATA.cities.length - 1;
+
+    const arrival = arrivalFor(city);
+    const departure = departureFor(city);
+
+    const isAccConf = acc.status === 'confirmed';
+    const host = extractField(acc.notes, 'Anfitrión', true);
+    const checkinTime = extractField(acc.notes, 'Check-in');
+    const checkoutTime = extractField(acc.notes, 'Checkout');
+
+    const firstDay = DATA.days.find(d => d.city === city.id);
+
+    const photoLayer = city.photo
+      ? `<img src="${city.photo}" alt="${city.name}" class="stop-hero-photo-img" loading="lazy" onerror="this.remove()">`
+      : '';
+
+    const accPhotoLayer = acc.photo
+      ? `<img src="${acc.photo}" alt="${acc.name || city.name}" class="stop-lodging-photo-img" loading="lazy" onerror="this.remove()">`
+      : `<span class="stop-lodging-photo-glyph">${city.emoji || '🏠'}</span>`;
+
+    return `
+      <div class="stop-hero mb-32" tabindex="0" role="button" aria-expanded="false"
+           onclick="toggleStopHero(this, event)" onkeydown="stopHeroKeydown(event, this)">
+        <div class="stop-hero-photo" style="background:${heroGradient(hex)}">
+          ${photoLayer}
+          <div class="stop-hero-overlay"></div>
+          <span class="stop-hero-photo-glyph">${city.emoji || ''}</span>
+          <div class="stop-hero-top">
+            <span class="stop-hero-badge">Parada ${index + 1} de ${DATA.cities.length}</span>
+          </div>
+          <div class="stop-hero-title-wrap">
+            <h1 class="stop-hero-title">${city.name}</h1>
+            <p class="stop-hero-country">${city.country} ${countryFlag(city.country)}</p>
+          </div>
+        </div>
+
+        <div class="stop-hero-panel">
+          <div class="stop-row">
+            <span class="stop-row-icon">${arrival ? transportTypeIcon(arrival.type) : '📍'}</span>
+            <div class="stop-row-body">
+              <span class="stop-row-title">Llegada</span>
+              ${arrival ? `
+                <span class="stop-row-time">${arrival.arrival || '—'}</span>
+                <span class="stop-row-place">${arrival.to_station || arrival.to || ''}</span>
+              ` : `<span class="stop-row-place">${emptyState('Por confirmar')}</span>`}
+            </div>
+          </div>
+
+          <div class="stop-divider"></div>
+
+          <div class="stop-lodging">
+            <div class="stop-lodging-photo" style="background:${heroGradient(hex)}">${accPhotoLayer}</div>
+            <div class="stop-lodging-info">
+              <div class="stop-lodging-name ${isAccConf ? '' : 'pending-text'}">${isAccConf ? acc.name : 'Alojamiento por confirmar'}</div>
+              ${acc.address ? `<div class="stop-lodging-address">${acc.address}</div>` : ''}
+              ${host ? `<div class="stop-lodging-host">Anfitrión · ${host}</div>` : ''}
+
+              <div class="stop-lodging-grid">
+                <div class="stop-lodging-cell">
+                  <span class="stop-lodging-cell-label">Check-in</span>
+                  <span class="stop-lodging-cell-value">${checkinTime || '—'}</span>
+                </div>
+                <div class="stop-lodging-cell">
+                  <span class="stop-lodging-cell-label">Check-out</span>
+                  <span class="stop-lodging-cell-value">${checkoutTime || '—'}</span>
+                </div>
+              </div>
+
+              <div class="stop-lodging-meta">
+                <span class="stop-lodging-chip">${formatDate(acc.checkin)} → ${formatDate(acc.checkout)}</span>
+                <span class="stop-lodging-chip">${acc.nights} ${acc.nights === 1 ? 'noche' : 'noches'}</span>
+                ${badge(acc.status)}
+              </div>
+            </div>
+          </div>
+
+          ${firstDay ? `
+            <a class="stop-cta" href="#itinerario" onclick="event.stopPropagation(); goToDay('${firstDay.date}'); return false;">
+              Ver itinerario <span class="stop-cta-chevron">›</span>
+            </a>
+          ` : ''}
+
+          <div class="stop-divider"></div>
+
+          <div class="stop-row">
+            <span class="stop-row-icon">${departure ? transportTypeIcon(departure.type) : '📍'}</span>
+            <div class="stop-row-body">
+              <span class="stop-row-title">Salida</span>
+              ${departure ? `
+                <span class="stop-row-time">${departure.departure || '—'}</span>
+                <span class="stop-row-place">${departure.from_station || departure.from || ''}</span>
+              ` : `<span class="stop-row-place">${isLastCity ? emptyState('Fin del viaje') : emptyState('Por confirmar')}</span>`}
+            </div>
+          </div>
+
+          <div class="stop-expand">
+            <div class="stop-expand-inner">
+              <div class="stop-expand-grid">
+                <div class="stop-expand-block">
+                  <span class="stop-expand-label">Clima habitual</span>
+                  <span class="stop-expand-value">${city.climate || '—'}</span>
+                </div>
+                ${acc.address ? `
+                  <div class="stop-expand-block">
+                    <span class="stop-expand-label">Mapa</span>
+                    <a class="stop-expand-link" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(acc.address)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Abrir en Google Maps ↗</a>
+                  </div>` : ''}
+              </div>
+              ${cityQuickLinksHTML(city.id)}
+              ${acc.notes ? `<div class="stop-expand-notes">📝 ${acc.notes}</div>` : ''}
+            </div>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  window.toggleStopHero = function (el, evt) {
+    if (evt && evt.target.closest('a, button')) return;
+    const expanded = el.classList.toggle('is-expanded');
+    el.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+  };
+
+  window.stopHeroKeydown = function (evt, el) {
+    if (evt.key === 'Enter' || evt.key === ' ') {
+      evt.preventDefault();
+      window.toggleStopHero(el, evt);
+    }
+  };
+
+  window.goToDay = function (dateStr) {
+    showSection('itinerario');
+    setTimeout(() => {
+      const card = document.getElementById('day-' + dateStr);
+      if (!card) return;
+      card.classList.add('open');
+      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 60);
+  };
 
   function renderResumen() {
     const totalNights = DATA.cities.reduce((s, c) => s + c.nights, 0);
@@ -120,10 +365,7 @@
         <div class="eyebrow">Septiembre – Octubre 2026</div>
       </div>
 
-      <div class="hero-route mb-32">
-        <h1 class="hero-headline">Zúrich<br><em>→ Roma</em></h1>
-        <p class="hero-dates">18 sep – 1 oct · 13 noches · 6 ciudades · 2 países</p>
-      </div>
+      ${renderStopHero()}
 
       <div class="stats-bar mb-32">
         <div class="stat-item">

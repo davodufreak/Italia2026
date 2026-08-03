@@ -176,27 +176,12 @@
       </div>`;
   }
 
-  function renderStopHero() {
-    const stop = computeNextStop();
-
-    if (!stop) {
-      return `
-        <div class="stop-hero stop-hero--done mb-32">
-          <div class="stop-hero-photo" style="background:${heroGradient('#B7A9F0')}">
-            <div class="stop-hero-overlay"></div>
-            <span class="stop-hero-photo-glyph">🎉</span>
-            <div class="stop-hero-top">
-              <span class="stop-hero-badge">Viaje completado</span>
-            </div>
-            <div class="stop-hero-title-wrap">
-              <h1 class="stop-hero-title">¡Bienvenido de vuelta!</h1>
-              <p class="stop-hero-country">13 noches · 6 ciudades · un viaje inolvidable</p>
-            </div>
-          </div>
-        </div>`;
-    }
-
-    const { city, index, accommodation } = stop;
+  // Construye una tarjeta de parada completa (foto + panel de cristal con
+  // Llegada / Hospedaje / Salida). La usan tanto el hero de "Próxima
+  // parada" como el carrusel de "Todas las paradas", así ambos comparten
+  // exactamente el mismo tratamiento visual.
+  function buildStopCard(city, index, accommodation, opts) {
+    opts = opts || {};
     const hex = cityColorHex(city.id);
     const acc = accommodation || {};
     const isLastCity = index === DATA.cities.length - 1;
@@ -215,12 +200,13 @@
       ? `<img src="${city.photo}" alt="${city.name}" class="stop-hero-photo-img" loading="lazy" onerror="this.remove()">`
       : '';
 
-    const accPhotoLayer = acc.photo
-      ? `<img src="${acc.photo}" alt="${acc.name || city.name}" class="stop-lodging-photo-img" loading="lazy" onerror="this.remove()">`
-      : `<span class="stop-lodging-photo-glyph">${city.emoji || '🏠'}</span>`;
+    const rootClasses = ['stop-hero'];
+    if (opts.compact) rootClasses.push('stop-hero--compact');
+    if (opts.active) rootClasses.push('stop-hero--active');
+    if (opts.extraClass) rootClasses.push(opts.extraClass);
 
     return `
-      <div class="stop-hero mb-32" tabindex="0" role="button" aria-expanded="false"
+      <div class="${rootClasses.join(' ')}" tabindex="0" role="button" aria-expanded="false"
            onclick="toggleStopHero(this, event)" onkeydown="stopHeroKeydown(event, this)">
         <div class="stop-hero-photo" style="background:${heroGradient(hex)}">
           ${photoLayer}
@@ -228,6 +214,7 @@
           <span class="stop-hero-photo-glyph">${city.emoji || ''}</span>
           <div class="stop-hero-top">
             <span class="stop-hero-badge">Parada ${index + 1} de ${DATA.cities.length}</span>
+            ${opts.active ? '<span class="stop-hero-badge stop-hero-badge--active">Próxima</span>' : ''}
           </div>
           <div class="stop-hero-title-wrap">
             <h1 class="stop-hero-title">${city.name}</h1>
@@ -250,7 +237,12 @@
           <div class="stop-divider"></div>
 
           <div class="stop-lodging">
-            <div class="stop-lodging-photo" style="background:${heroGradient(hex)}">${accPhotoLayer}</div>
+            <div class="stop-row">
+              <span class="stop-row-icon">🏨</span>
+              <div class="stop-row-body">
+                <span class="stop-row-title">Hospedaje</span>
+              </div>
+            </div>
             <div class="stop-lodging-info">
               <div class="stop-lodging-name ${isAccConf ? '' : 'pending-text'}">${isAccConf ? acc.name : 'Alojamiento por confirmar'}</div>
               ${acc.address ? `<div class="stop-lodging-address">${acc.address}</div>` : ''}
@@ -315,6 +307,46 @@
       </div>`;
   }
 
+  function renderStopHero() {
+    const stop = computeNextStop();
+
+    if (!stop) {
+      return `
+        <div class="stop-hero stop-hero--done mb-32">
+          <div class="stop-hero-photo" style="background:${heroGradient('#B7A9F0')}">
+            <div class="stop-hero-overlay"></div>
+            <span class="stop-hero-photo-glyph">🎉</span>
+            <div class="stop-hero-top">
+              <span class="stop-hero-badge">Viaje completado</span>
+            </div>
+            <div class="stop-hero-title-wrap">
+              <h1 class="stop-hero-title">¡Bienvenido de vuelta!</h1>
+              <p class="stop-hero-country">13 noches · 6 ciudades · un viaje inolvidable</p>
+            </div>
+          </div>
+        </div>`;
+    }
+
+    const { city, index, accommodation } = stop;
+    return `<div class="mb-32">${buildStopCard(city, index, accommodation, {})}</div>`;
+  }
+
+  // Carrusel con las 6 paradas del viaje, para tener visibilidad completa
+  // del recorrido (no solo la próxima parada) en una sola pantalla.
+  function renderStopCarousel() {
+    const next = computeNextStop();
+    const activeIndex = next ? next.index : -1;
+
+    const itemsHTML = DATA.cities.map((city, i) => {
+      const acc = accommodationForCity(city.id);
+      return `<div class="stop-carousel-item">${buildStopCard(city, i, acc, { compact: true, active: i === activeIndex })}</div>`;
+    }).join('');
+
+    return `
+      <div class="eyebrow mb-16">Todas las paradas</div>
+      <div class="stop-carousel mb-32">${itemsHTML}</div>`;
+  }
+
   window.toggleStopHero = function (el, evt) {
     if (evt && evt.target.closest('a, button')) return;
     const expanded = el.classList.toggle('is-expanded');
@@ -366,6 +398,8 @@
       </div>
 
       ${renderStopHero()}
+
+      ${renderStopCarousel()}
 
       <div class="stats-bar mb-32">
         <div class="stat-item">

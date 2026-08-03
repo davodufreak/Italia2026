@@ -16,13 +16,18 @@ const DATA = {
   },
 
   // ── Ciudades ──────────────────────────────────────────────
+  // photo:   URL opcional de una foto editorial del destino (se usa en el
+  //          hero de "Próxima parada" del Resumen). Si es null, se muestra
+  //          un fondo de cristal degradado con el emoji de la ciudad.
+  // climate: nota de referencia sobre el clima habitual en esas fechas
+  //          (no es un pronóstico en vivo).
   cities: [
-    { id: "zurich",       name: "Zúrich",       country: "Suiza",  emoji: "🏔️", color: "var(--zurich)",       nights: 2, dates: "18–19 sep" },
-    { id: "milan",        name: "Milán",         country: "Italia", emoji: "🏛️", color: "var(--milan)",        nights: 1, dates: "20 sep"    },
-    { id: "venecia",      name: "Venecia",       country: "Italia", emoji: "🚤", color: "var(--venecia)",      nights: 2, dates: "21–22 sep" },
-    { id: "florencia",    name: "Florencia",     country: "Italia", emoji: "🎨", color: "var(--florencia)",    nights: 2, dates: "23–24 sep" },
-    { id: "cinque_terre", name: "Cinque Terre",  country: "Italia", emoji: "🌊", color: "var(--cinque_terre)", nights: 2, dates: "25–26 sep" },
-    { id: "roma",         name: "Roma",          country: "Italia", emoji: "🏟️", color: "var(--roma)",         nights: 4, dates: "27–30 sep" },
+    { id: "zurich",       name: "Zúrich",       country: "Suiza",  emoji: "🏔️", color: "var(--zurich)",       nights: 2, dates: "18–19 sep", photo: null, climate: "12–20°C · otoño fresco, lleva capas" },
+    { id: "milan",        name: "Milán",         country: "Italia", emoji: "🏛️", color: "var(--milan)",        nights: 1, dates: "20 sep",    photo: null, climate: "15–24°C · templado, posible lluvia breve" },
+    { id: "venecia",      name: "Venecia",       country: "Italia", emoji: "🚤", color: "var(--venecia)",      nights: 2, dates: "21–22 sep", photo: null, climate: "16–24°C · húmedo, buen calzado para adoquines" },
+    { id: "florencia",    name: "Florencia",     country: "Italia", emoji: "🎨", color: "var(--florencia)",    nights: 2, dates: "23–24 sep", photo: null, climate: "16–26°C · soleado, tardes cálidas" },
+    { id: "cinque_terre", name: "Cinque Terre",  country: "Italia", emoji: "🌊", color: "var(--cinque_terre)", nights: 2, dates: "25–26 sep", photo: null, climate: "18–25°C · mar templado (~23°C), ideal para caminar" },
+    { id: "roma",         name: "Roma",          country: "Italia", emoji: "🏟️", color: "var(--roma)",         nights: 4, dates: "27–30 sep", photo: null, climate: "17–27°C · soleado, protector solar recomendado" },
   ],
 
   // ── Itinerario día a día ───────────────────────────────────
@@ -188,6 +193,9 @@ const DATA = {
 
   // ── Hospedajes ────────────────────────────────────────────
   // status: "confirmed" | "pending"
+  // photo:  URL opcional de una foto del hospedaje (hero de "Próxima
+  //         parada"). Si es null, se muestra una superficie de cristal
+  //         con el ícono de la ciudad.
   accommodations: [
     {
       city: "zurich",
@@ -198,6 +206,7 @@ const DATA = {
       nights: 2,
       confirmation: null,
       phone: null,
+      photo: null,
       notes: "Anfitrión: David · Check-in 3:00 PM · Checkout 10:00 AM.",
       status: "confirmed"
     },
@@ -210,6 +219,7 @@ const DATA = {
       nights: 1,
       confirmation: null,
       phone: null,
+      photo: null,
       notes: "Anfitrión: Sergio Borroni · Check-in 2:00 PM · Checkout 11:00 AM.",
       status: "confirmed"
     },
@@ -222,6 +232,7 @@ const DATA = {
       nights: 2,
       confirmation: null,
       phone: null,
+      photo: null,
       notes: "Check-in 1:30 PM – 11:30 PM · Checkout 5:00 AM – 11:00 AM · Avisar hora de llegada al anfitrión por el chat de Booking.",
       status: "confirmed"
     },
@@ -234,6 +245,7 @@ const DATA = {
       nights: 2,
       confirmation: null,
       phone: null,
+      photo: null,
       notes: null,
       status: "pending"
     },
@@ -246,6 +258,7 @@ const DATA = {
       nights: 2,
       confirmation: null,
       phone: null,
+      photo: null,
       notes: "Vernazza o Monterosso son las mejores bases.",
       status: "pending"
     },
@@ -258,6 +271,7 @@ const DATA = {
       nights: 4,
       confirmation: null,
       phone: null,
+      photo: null,
       notes: null,
       status: "pending"
     },

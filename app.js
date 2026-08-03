@@ -18,12 +18,12 @@
 
   function cityColorHex(id) {
     const map = {
-      zurich:       '#e8334a',
-      milan:        '#4a9bd4',
-      venecia:      '#9b72cf',
-      florencia:    '#e07b54',
-      cinque_terre: '#48c78e',
-      roma:         '#ddb84a',
+      zurich:       '#F2998C',
+      milan:        '#8FC7F2',
+      venecia:      '#B7A9F0',
+      florencia:    '#E8A87C',
+      cinque_terre: '#9FD8B0',
+      roma:         '#E8C468',
     };
     return map[id] || '#888';
   }
@@ -53,7 +53,7 @@
 
   function priorityBadge(p) {
     if (p === 'urgent') return '<span class="badge badge-urgent">⚡ Urgente</span>';
-    if (p === 'low')    return '<span class="badge" style="background:rgba(100,100,120,0.2);color:var(--text-dim)">Flexible</span>';
+    if (p === 'low')    return '<span class="badge" style="background:rgba(143,149,165,0.14);color:var(--text-dim)">Flexible</span>';
     return '';
   }
 
@@ -151,9 +151,9 @@
 
       <div class="eyebrow mb-16">Estado de reservas</div>
       <div class="status-grid">
-        ${statusCard('Hospedajes',   confHotels,  DATA.accommodations.length, '#5cb87a')}
-        ${statusCard('Traslados',    confTrans,   DATA.transports.length,     '#4a9bd4')}
-        ${statusCard('Entradas',     confTickets, DATA.tickets.length,        '#c4965a')}
+        ${statusCard('Hospedajes',   confHotels,  DATA.accommodations.length, '#9FD8B0')}
+        ${statusCard('Traslados',    confTrans,   DATA.transports.length,     '#8FC7F2')}
+        ${statusCard('Entradas',     confTickets, DATA.tickets.length,        '#B7A9F0')}
       </div>
     `;
   }
@@ -281,7 +281,6 @@
 
             <div style="margin-top:12px;">${badge(h.status)}</div>
           </div>
-          <div class="hotel-ghost">${city.name || ''}</div>
         </div>`;
     }).join('');
 
@@ -307,6 +306,7 @@
       const isConf   = t.status === 'confirmed';
       const isFlight = t.type === 'flight';
       const icon     = isFlight ? '✈️' : '🚄';
+      const iconMod  = isFlight ? 'transport-type-icon--flight' : 'transport-type-icon--train';
       const fromCity = isFlight ? `${t.from} (${t.from_code})` : `${t.from}`;
       const toCity   = isFlight ? `${t.to} (${t.to_code})`   : `${t.to}`;
 
@@ -344,7 +344,7 @@
             ${isConf && t.confirmation ? `<div style="margin-top:10px;">${mono(t.confirmation)}</div>` : ''}
           </div>
           <div class="transport-badge-wrap">
-            <span class="transport-type-icon">${icon}</span>
+            <span class="transport-type-icon ${iconMod}">${icon}</span>
             ${badge(t.status)}
           </div>
         </div>`;

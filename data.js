@@ -22,7 +22,7 @@ const DATA = {
   // climate: nota de referencia sobre el clima habitual en esas fechas
   //          (no es un pronóstico en vivo).
   cities: [
-    { id: "zurich",       name: "Zúrich",       country: "Suiza",  emoji: "🏔️", color: "var(--zurich)",       nights: 2, dates: "18–19 sep", photo: null, climate: "12–20°C · otoño fresco, lleva capas" },
+    { id: "zurich",       name: "Zúrich",       country: "Suiza",  emoji: "🏔️", color: "var(--zurich)",       nights: 2, dates: "18–19 sep", photo: "img/zurich.jpg", climate: "12–20°C · otoño fresco, lleva capas" },
     { id: "milan",        name: "Milán",         country: "Italia", emoji: "🏛️", color: "var(--milan)",        nights: 1, dates: "20 sep",    photo: null, climate: "15–24°C · templado, posible lluvia breve" },
     { id: "venecia",      name: "Venecia",       country: "Italia", emoji: "🚤", color: "var(--venecia)",      nights: 2, dates: "21–22 sep", photo: null, climate: "16–24°C · húmedo, buen calzado para adoquines" },
     { id: "florencia",    name: "Florencia",     country: "Italia", emoji: "🎨", color: "var(--florencia)",    nights: 2, dates: "23–24 sep", photo: null, climate: "16–26°C · soleado, tardes cálidas" },

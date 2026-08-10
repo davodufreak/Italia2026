@@ -319,7 +319,6 @@
     }).join('');
 
     return `
-      <div class="eyebrow mb-16">Todas las paradas</div>
       <div class="stop-carousel mb-32">${itemsHTML}</div>`;
   }
 
@@ -370,7 +369,14 @@
 
     document.getElementById('section-resumen').innerHTML = `
       <div class="section-header">
-        <div class="eyebrow">Septiembre – Octubre 2026</div>
+        <div class="eyebrow">Italia 2026</div>
+        <h2 class="section-title">Resumen de viaje</h2>
+        <p class="section-sub">Vista rápida de todas las paradas</p>
+      </div>
+
+      <div class="route-strip mb-32">
+        <div class="route-strip-label">Ruta del viaje</div>
+        <div class="route-cities">${routeHTML}</div>
       </div>
 
       ${renderStopCarousel()}
@@ -392,11 +398,6 @@
           <span class="stat-number">${DATA.tickets.length}</span>
           <span class="stat-label">Entradas</span>
         </div>
-      </div>
-
-      <div class="route-strip mb-32">
-        <div class="route-strip-label">Ruta del viaje</div>
-        <div class="route-cities">${routeHTML}</div>
       </div>
 
       <div class="eyebrow mb-16">Estado de reservas</div>

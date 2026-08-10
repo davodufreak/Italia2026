@@ -97,19 +97,19 @@ const DATA = {
         { time: "Mañana",   icon: "🚄", text: "Tren desde Venecia a Santa Maria Novella." },
         { time: "Mediodía", icon: "🏛️", text: "Mercado Central de San Lorenzo (2° piso)." },
         { time: "Tarde",    icon: "🗿", text: "Piazza della Signoria y la Loggia dei Lanzi." },
+        { time: "Tarde",    icon: "🌿", text: "Jardines de Boboli." },
         { time: "Tarde",    icon: "🌉", text: "Ponte Vecchio al atardecer." },
+        { time: "Tarde",    icon: "🌅", text: "Piazzale Michelangelo." },
         { time: "Noche",    icon: "🥩", text: "Cena en el Oltrarno — bistecca alla fiorentina." },
+        { time: "Noche",    icon: "🍷", text: "Enoteca en el Oltrarno — Chianti Classico." },
       ]
     },
     {
       date: "2026-09-24", weekday: "Jue", city: "florencia",
-      label: "Museos y colinas",
+      label: "Tour guiado: Uffizi + Academia",
       activities: [
-        { time: "Mañana",   icon: "🖼️", text: "Galería Uffizi — Botticelli, Leonardo, Miguel Ángel." },
-        { time: "Mediodía", icon: "⛪", text: "Duomo + Baptisterio + Cúpula de Brunelleschi." },
-        { time: "Tarde",    icon: "🌿", text: "Jardines de Boboli." },
-        { time: "Tarde",    icon: "🌅", text: "Piazzale Michelangelo." },
-        { time: "Noche",    icon: "🍷", text: "Enoteca en el Oltrarno — Chianti Classico." },
+        { time: "09:45",       icon: "🎟️", text: "TOUR CIVITATIS (A40777180) — punto de encuentro: Via degli Avelli, 20 (frente a Santa Maria Novella). Llega 15 min antes." },
+        { time: "09:45–16:45", icon: "🖼️", text: "Visita guiada por Florencia + Galería Uffizi + Galería de la Academia (David de Miguel Ángel). Guía en español · 7 horas · 2 adultos, David Hurtado." },
       ]
     },
     {
@@ -440,16 +440,16 @@ const DATA = {
     // FLORENCIA
     {
       city: "florencia",
-      name: "Galería Uffizi",
+      name: "Florencia + Uffizi + Academia (tour guiado)",
       date: "2026-09-24",
-      time: null,
-      confirmation: null,
-      price: null,
-      status: "pending",
-      priority: "urgent",
-      booking_deadline: "Reservar YA",
-      booking_url: "https://tickets.uffizi.it",
-      notes: "Entradas nominativas. Reserva obligatoria con semanas de anticipación."
+      time: "09:45",
+      confirmation: "A40777180",
+      price: "5,636.03 MXN (2 adultos)",
+      status: "confirmed",
+      priority: "normal",
+      booking_deadline: null,
+      booking_url: null,
+      notes: "2 adultos · 7 horas · Guía en español · Punto de encuentro: Via degli Avelli, 20 (Civitatis) · Incluye entradas a Uffizi y Academia."
     },
     {
       city: "florencia",
@@ -462,7 +462,7 @@ const DATA = {
       priority: "urgent",
       booking_deadline: "Reservar YA",
       booking_url: "https://duomo.firenze.it",
-      notes: "Incluye Cúpula + Bautisterio + Museo + Cripta. Nominativo."
+      notes: "Incluye Cúpula + Bautisterio + Museo + Cripta. Nominativo. Pendiente de reubicar en el itinerario: el jueves 24 ahora está ocupado por el tour de 9:45 a 16:45."
     },
     // VENECIA
     {

@@ -238,16 +238,16 @@ const DATA = {
     },
     {
       city: "florencia",
-      name: null,
-      address: null,
+      name: "Camera doppia a Firenze centro (Airbnb)",
+      address: "Via Nazionale, 20, 50123, Florence, Tuscany, Italy",
       checkin: "2026-09-23",
       checkout: "2026-09-25",
       nights: 2,
-      confirmation: null,
-      phone: null,
+      confirmation: "HMYFFBSY2P",
+      phone: "+39 328 748 4459",
       photo: null,
-      notes: null,
-      status: "pending"
+      notes: "Check-in 2:00 PM · Checkout 10:00 AM.",
+      status: "confirmed"
     },
     {
       city: "cinque_terre",

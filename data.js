@@ -251,16 +251,16 @@ const DATA = {
     },
     {
       city: "cinque_terre",
-      name: null,
-      address: null,
+      name: "Monolocale alle 5 Terre (Airbnb)",
+      address: "Via San Giovanni Battista, 8, 19018 Vernazza SP, Italy",
       checkin: "2026-09-25",
       checkout: "2026-09-27",
       nights: 2,
-      confirmation: null,
-      phone: null,
+      confirmation: "HMQ4QWZQWW",
+      phone: "+39 338 254 3469",
       photo: null,
-      notes: "Vernazza o Monterosso son las mejores bases.",
-      status: "pending"
+      notes: "Check-in 2:00 PM · Checkout 10:00 AM.",
+      status: "confirmed"
     },
     {
       city: "roma",

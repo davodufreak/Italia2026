@@ -23,11 +23,11 @@ const DATA = {
   //          (no es un pronóstico en vivo).
   cities: [
     { id: "zurich",       name: "Zúrich",       country: "Suiza",  emoji: "🏔️", color: "var(--zurich)",       nights: 2, dates: "18–19 sep", photo: "img/zurich.jpg", climate: "12–20°C · otoño fresco, lleva capas" },
-    { id: "milan",        name: "Milán",         country: "Italia", emoji: "🏛️", color: "var(--milan)",        nights: 1, dates: "20 sep",    photo: null, climate: "15–24°C · templado, posible lluvia breve" },
-    { id: "venecia",      name: "Venecia",       country: "Italia", emoji: "🚤", color: "var(--venecia)",      nights: 2, dates: "21–22 sep", photo: null, climate: "16–24°C · húmedo, buen calzado para adoquines" },
-    { id: "florencia",    name: "Florencia",     country: "Italia", emoji: "🎨", color: "var(--florencia)",    nights: 2, dates: "23–24 sep", photo: null, climate: "16–26°C · soleado, tardes cálidas" },
-    { id: "cinque_terre", name: "Cinque Terre",  country: "Italia", emoji: "🌊", color: "var(--cinque_terre)", nights: 2, dates: "25–26 sep", photo: null, climate: "18–25°C · mar templado (~23°C), ideal para caminar" },
-    { id: "roma",         name: "Roma",          country: "Italia", emoji: "🏟️", color: "var(--roma)",         nights: 4, dates: "27–30 sep", photo: null, climate: "17–27°C · soleado, protector solar recomendado" },
+    { id: "milan",        name: "Milán",         country: "Italia", emoji: "🏛️", color: "var(--milan)",        nights: 1, dates: "20 sep",    photo: "img/milan.jpg", climate: "15–24°C · templado, posible lluvia breve" },
+    { id: "venecia",      name: "Venecia",       country: "Italia", emoji: "🚤", color: "var(--venecia)",      nights: 2, dates: "21–22 sep", photo: "img/venecia.jpg", climate: "16–24°C · húmedo, buen calzado para adoquines" },
+    { id: "florencia",    name: "Florencia",     country: "Italia", emoji: "🎨", color: "var(--florencia)",    nights: 2, dates: "23–24 sep", photo: "img/florencia.jpg", climate: "16–26°C · soleado, tardes cálidas" },
+    { id: "cinque_terre", name: "Cinque Terre",  country: "Italia", emoji: "🌊", color: "var(--cinque_terre)", nights: 2, dates: "25–26 sep", photo: "img/cinque_terre.jpg", climate: "18–25°C · mar templado (~23°C), ideal para caminar" },
+    { id: "roma",         name: "Roma",          country: "Italia", emoji: "🏟️", color: "var(--roma)",         nights: 4, dates: "27–30 sep", photo: "img/roma.jpg", climate: "17–27°C · soleado, protector solar recomendado" },
   ],
 
   // ── Itinerario día a día ───────────────────────────────────

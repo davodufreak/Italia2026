@@ -307,39 +307,15 @@
       </div>`;
   }
 
-  function renderStopHero() {
-    const stop = computeNextStop();
-
-    if (!stop) {
-      return `
-        <div class="stop-hero stop-hero--done mb-32">
-          <div class="stop-hero-photo" style="background:${heroGradient('#B7A9F0')}">
-            <div class="stop-hero-overlay"></div>
-            <span class="stop-hero-photo-glyph">🎉</span>
-            <div class="stop-hero-top">
-              <span class="stop-hero-badge">Viaje completado</span>
-            </div>
-            <div class="stop-hero-title-wrap">
-              <h1 class="stop-hero-title">¡Bienvenido de vuelta!</h1>
-              <p class="stop-hero-country">13 noches · 6 ciudades · un viaje inolvidable</p>
-            </div>
-          </div>
-        </div>`;
-    }
-
-    const { city, index, accommodation } = stop;
-    return `<div class="mb-32">${buildStopCard(city, index, accommodation, {})}</div>`;
-  }
-
-  // Carrusel con las 6 paradas del viaje, para tener visibilidad completa
-  // del recorrido (no solo la próxima parada) en una sola pantalla.
+  // Carrusel con las 6 paradas del viaje, a tamaño completo, para tener
+  // visibilidad de todo el recorrido en una sola pantalla.
   function renderStopCarousel() {
     const next = computeNextStop();
     const activeIndex = next ? next.index : -1;
 
     const itemsHTML = DATA.cities.map((city, i) => {
       const acc = accommodationForCity(city.id);
-      return `<div class="stop-carousel-item">${buildStopCard(city, i, acc, { compact: true, active: i === activeIndex })}</div>`;
+      return `<div class="stop-carousel-item">${buildStopCard(city, i, acc, { active: i === activeIndex })}</div>`;
     }).join('');
 
     return `
@@ -396,8 +372,6 @@
       <div class="section-header">
         <div class="eyebrow">Septiembre – Octubre 2026</div>
       </div>
-
-      ${renderStopHero()}
 
       ${renderStopCarousel()}
 

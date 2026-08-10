@@ -786,10 +786,6 @@ h3 { font-size: 1.05rem; }
   padding: 12px 14px;
 }
 
-/* Estado: viaje completado */
-.stop-hero--done { cursor: default; }
-.stop-hero--done .stop-hero-photo { height: clamp(220px, 30vw, 280px); }
-
 /* Badge "Próxima" (resalta la parada activa dentro del carrusel) */
 .stop-hero-badge--active {
   background: rgba(183,169,240,0.28);
@@ -798,22 +794,24 @@ h3 { font-size: 1.05rem; }
 }
 
 /* ── Carrusel: Todas las paradas ─────────────────────────────
-   Reutiliza exactamente la misma tarjeta (buildStopCard) en una
-   variante compacta para dar visibilidad de las 6 paradas.
+   Reutiliza exactamente la misma tarjeta (buildStopCard) a tamaño
+   completo; cada parada ocupa todo el ancho y el scroll-snap hace
+   que el deslizamiento pase de una tarjeta a otra por completo.
 ─────────────────────────────────────────────────────────────── */
 .stop-carousel {
   display: flex;
   gap: 20px;
   overflow-x: auto;
-  scroll-snap-type: x proximity;
+  scroll-snap-type: x mandatory;
   padding: 4px 4px 14px;
   margin: 0 0 32px;
 }
 
 .stop-carousel-item {
-  flex: 0 0 auto;
-  width: min(320px, 80vw);
+  flex: 0 0 100%;
+  width: 100%;
   scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 .stop-carousel .stop-hero { height: 100%; }
@@ -822,25 +820,6 @@ h3 { font-size: 1.05rem; }
   border-color: rgba(183,169,240,0.35);
   box-shadow: var(--shadow-lg), 0 0 0 2px rgba(183,169,240,0.3);
 }
-
-.stop-hero--compact .stop-hero-photo {
-  height: 130px;
-  padding: 16px 18px;
-}
-
-.stop-hero--compact .stop-hero-photo-glyph { font-size: 84px; }
-
-.stop-hero--compact .stop-hero-title { font-size: 1.4rem; }
-.stop-hero--compact .stop-hero-country { font-size: 12px; }
-.stop-hero--compact .stop-hero-badge { font-size: 9.5px; padding: 5px 11px; }
-
-.stop-hero--compact .stop-hero-panel { padding: 20px 20px 18px; }
-.stop-hero--compact .stop-row-time { font-size: 16px; }
-.stop-hero--compact .stop-lodging-name { font-size: 1rem; }
-.stop-hero--compact .stop-lodging-info { padding-left: 48px; }
-.stop-hero--compact .stop-row-icon { width: 32px; height: 32px; font-size: 14px; }
-.stop-hero--compact .stop-cta { margin-top: 16px; padding: 8px 14px; font-size: 12px; }
-.stop-hero--compact .stop-divider { margin: 14px 0; }
 
 /* Stats bar */
 .stats-bar {
@@ -1600,7 +1579,6 @@ h3 { font-size: 1.05rem; }
   .stop-hero-panel { padding: 22px 20px 22px; }
   .stop-lodging-info { padding-left: 0; }
   .stop-lodging-grid { grid-template-columns: 1fr 1fr; }
-  .stop-carousel-item { width: min(340px, 86vw); }
 
   .transport-card {
     grid-template-columns: 1fr;

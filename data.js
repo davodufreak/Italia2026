@@ -96,12 +96,10 @@ const DATA = {
       activities: [
         { time: "Mañana",   icon: "🚄", text: "Tren desde Venecia a Santa Maria Novella." },
         { time: "Mediodía", icon: "🏛️", text: "Mercado Central de San Lorenzo (2° piso)." },
-        { time: "Tarde",    icon: "🗿", text: "Piazza della Signoria y la Loggia dei Lanzi." },
         { time: "Tarde",    icon: "🌿", text: "Jardines de Boboli." },
         { time: "Tarde",    icon: "🌉", text: "Ponte Vecchio al atardecer." },
         { time: "Tarde",    icon: "🌅", text: "Piazzale Michelangelo." },
         { time: "Noche",    icon: "🥩", text: "Cena en el Oltrarno — bistecca alla fiorentina." },
-        { time: "Noche",    icon: "🍷", text: "Enoteca en el Oltrarno — Chianti Classico." },
       ]
     },
     {
@@ -109,7 +107,8 @@ const DATA = {
       label: "Tour guiado: Uffizi + Academia",
       activities: [
         { time: "09:45",       icon: "🎟️", text: "TOUR CIVITATIS (A40777180) — punto de encuentro: Via degli Avelli, 20 (frente a Santa Maria Novella). Llega 15 min antes." },
-        { time: "09:45–16:45", icon: "🖼️", text: "Visita guiada por Florencia + Galería Uffizi + Galería de la Academia (David de Miguel Ángel). Guía en español · 7 horas · 2 adultos, David Hurtado." },
+        { time: "09:45–16:45", icon: "🖼️", text: "Visita guiada por el centro histórico (Piazza della Signoria, Duomo) + Galería Uffizi + Galería de la Academia (David de Miguel Ángel). Guía en español · 7 horas · 2 adultos, David Hurtado." },
+        { time: "Noche",       icon: "🍷", text: "Enoteca en el Oltrarno — Chianti Classico." },
       ]
     },
     {

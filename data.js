@@ -130,27 +130,35 @@ const DATA = {
         { time: "Mediodía", icon: "🍋", text: "Corniglia — granita de limón obligatoria." },
         { time: "Tarde",    icon: "🚢", text: "Barca entre pueblos para ver los acantilados." },
         { time: "Tarde",    icon: "🌅", text: "Riomaggiore al atardecer." },
-        { time: "Noche",    icon: "🌙", text: "Última noche costera." },
+        { time: "Noche",    icon: "🌙", text: "Última noche costera — cena temprana." },
+        { time: "Antes de dormir", icon: "🧳", text: "Maleta lista y despertador temprano — mañana toca madrugar para llegar a Roma a tiempo para la misa dominical en el Vaticano." },
       ]
     },
     {
       date: "2026-09-27", weekday: "Dom", city: "roma",
-      label: "Llegada a la Ciudad Eterna",
+      label: "Domingo en el Vaticano — Misa",
       activities: [
-        { time: "Mañana",   icon: "🚄", text: "Tren La Spezia → Roma Termini. Llegada al mediodía." },
-        { time: "Tarde",    icon: "🌿", text: "Paseo de orientación por Trastevere." },
-        { time: "Tarde",    icon: "🏛️", text: "Castel Sant'Angelo desde fuera al atardecer." },
+        { time: "05:45",    icon: "⏰", text: "Salida de Vernazza — primer regional a La Spezia Centrale." },
+        { time: "06:51",    icon: "🚄", text: "Frecciargento La Spezia Centrale → Roma Termini, llega 10:05 (o Frecciabianca 06:18→10:03). Tramo aún pendiente de reservar — confirma el horario exacto al comprar." },
+        { time: "10:15",    icon: "🧳", text: "Deja el equipaje en consigna de Termini o directo al hospedaje si el check-in lo permite — viaja ligero." },
+        { time: "10:20",    icon: "🚇", text: "Metro Línea A, Termini → Ottaviano-San Pietro (~20 min), hacia la Plaza de San Pedro." },
+        { time: "10:45",    icon: "⛪", text: "Plaza de San Pedro — fila de seguridad para la Basílica. Hombros y rodillas cubiertos (llevar chal/pashmina)." },
+        { time: "12:00",    icon: "👋", text: "Si el Papa está en Roma, el Ángelus dominical se asoma a la ventana a esta hora — mismo lugar que la fila." },
+        { time: "12:30 PM", icon: "🙏", text: "Misa dominical en la Basílica de San Pedro (Altar de la Cátedra). Confirma el horario exacto cerca de la fecha en basilicasanpietro.va — también hay misas a las 9:00 y 10:30 AM si el tren llega antes." },
+        { time: "Tarde",    icon: "🍝", text: "Almuerzo cerca del Vaticano — Borgo Pio o Prati." },
+        { time: "Tarde",    icon: "🏛️", text: "Castel Sant'Angelo por dentro — cruza el Puente de los Ángeles, está a 10 min a pie." },
+        { time: "Tarde",    icon: "🏠", text: "Check-in en el hospedaje." },
         { time: "Noche",    icon: "🍝", text: "Cena en Trastevere — cacio e pepe o carbonara." },
       ]
     },
     {
       date: "2026-09-28", weekday: "Lun", city: "roma",
-      label: "El Vaticano",
+      label: "El Vaticano — Museos",
       activities: [
         { time: "8:00 AM",  icon: "⚠️", text: "Museos Vaticanos — llega a las 8am (reserva previa obligatoria)." },
         { time: "Mañana",   icon: "🎨", text: "Capilla Sixtina — Miguel Ángel en el techo." },
-        { time: "Mediodía", icon: "⛪", text: "Basílica de San Pedro — sube a la cúpula." },
-        { time: "Tarde",    icon: "🔭", text: "Vista a Castel Sant'Angelo desde el Puente de los Ángeles." },
+        { time: "Mediodía", icon: "⛪", text: "Basílica de San Pedro con calma, sin las filas del domingo — sube a la cúpula." },
+        { time: "Tarde",    icon: "🛍️", text: "Tarde libre en Prati — Via Cola di Rienzo (tiendas) o descanso." },
         { time: "Noche",    icon: "🍕", text: "Pizza en el barrio Prati." },
       ]
     },
@@ -374,15 +382,16 @@ const DATA = {
       to: "Roma",
       to_station: "Roma Termini",
       date: "2026-09-27",
-      departure: null,
-      arrival: null,
-      operator: "Frecciarossa",
+      departure: "06:51",
+      arrival: "10:05",
+      operator: "Frecciargento",
       train_number: null,
       car: null,
       seat: null,
       class: null,
       confirmation: null,
-      status: "pending"
+      status: "pending",
+      notes: "Objetivo: el primer tren posible para llegar a tiempo a la misa dominical del Vaticano (12:30 PM). Sale de Vernazza ~05:45 en el regional a La Spezia Centrale. Alternativa: Frecciabianca 06:18→10:03. Reservar y confirmar horario exacto."
     },
     {
       type: "flight",
@@ -491,6 +500,19 @@ const DATA = {
       notes: "€5 más barato si se compra con +30 días de antelación."
     },
     // VATICANO
+    {
+      city: "roma",
+      name: "Misa dominical — Basílica de San Pedro",
+      date: "2026-09-27",
+      time: "12:30 PM",
+      confirmation: null,
+      price: "Gratis",
+      status: "pending",
+      priority: "urgent",
+      booking_deadline: "No requiere reserva",
+      booking_url: "https://www.basilicasanpietro.va/es/horarios",
+      notes: "Entrada libre, sin boleto. Llegar a la Plaza de San Pedro ~10:45 AM para hacer fila de seguridad con tiempo. Hombros y rodillas cubiertos. Confirmar horario exacto cerca de la fecha (también hay misas a las 9:00 y 10:30 AM)."
+    },
     {
       city: "roma",
       name: "Museos Vaticanos + Capilla Sixtina",

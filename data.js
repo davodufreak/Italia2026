@@ -271,16 +271,16 @@ const DATA = {
     },
     {
       city: "roma",
-      name: null,
-      address: null,
+      name: "Home in Rome (Airbnb)",
+      address: "Via Nicola Ricciotti, 11, Rome, Lazio 00195, Italy",
       checkin: "2026-09-27",
       checkout: "2026-10-01",
       nights: 4,
-      confirmation: null,
+      confirmation: "HMTPB9XRRH",
       phone: null,
       photo: null,
-      notes: null,
-      status: "pending"
+      notes: "Anfitrión: Luigi · Check-in 2:00 PM · Checkout 12:00 PM.",
+      status: "confirmed"
     },
   ],
 

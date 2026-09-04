@@ -158,7 +158,7 @@ const DATA = {
       activities: [
         { time: "08:15",    icon: "🎟️", text: "TOUR CIVITATIS (A41377056) — punto de encuentro: Viale Giulio Cesare. Llega 15 min antes." },
         { time: "08:30",    icon: "🎨", text: "Visita guiada por los Museos Vaticanos y la Capilla Sixtina. Guía en español · 2h30m–3h · 2 adultos, David Hurtado." },
-        { time: "Mediodía", icon: "⛪", text: "Basílica de San Pedro con calma, sin las filas del domingo — sube a la cúpula." },
+        { time: "13:00",    icon: "⛪", text: "Basílica de San Pedro + Cúpula (Fast-Track, código GYG32LYZLLRK) — sin las filas del domingo. Subida a la cúpula solo por ascensor · 1.5h · 2 adultos." },
         { time: "Tarde",    icon: "🛍️", text: "Tarde libre en Prati — Via Cola di Rienzo (tiendas) o descanso." },
         { time: "Noche",    icon: "🍕", text: "Pizza en el barrio Prati." },
       ]
@@ -545,6 +545,19 @@ const DATA = {
       booking_deadline: null,
       booking_url: null,
       notes: "2 adultos · 2h30m–3h · Guía en español · Punto de encuentro: Viale Giulio Cesare (Civitatis) · Proveedor: Tourismotion Tours +39 0692926678."
+    },
+    {
+      city: "roma",
+      name: "Vaticano: Basílica de San Pedro + Cúpula (Fast-Track)",
+      date: "2026-09-28",
+      time: "13:00",
+      confirmation: "GYG32LYZLLRK",
+      price: null,
+      status: "confirmed",
+      priority: "normal",
+      booking_deadline: null,
+      booking_url: null,
+      notes: "2 adultos · 1.5 horas · Guía en español · Subida a la cúpula solo por ascensor (lift only) · GetYourGuide."
     },
     // ROMA
     {

@@ -156,8 +156,8 @@ const DATA = {
       date: "2026-09-28", weekday: "Lun", city: "roma",
       label: "El Vaticano — Museos",
       activities: [
-        { time: "8:00 AM",  icon: "⚠️", text: "Museos Vaticanos — llega a las 8am (reserva previa obligatoria)." },
-        { time: "Mañana",   icon: "🎨", text: "Capilla Sixtina — Miguel Ángel en el techo." },
+        { time: "08:15",    icon: "🎟️", text: "TOUR CIVITATIS (A41377056) — punto de encuentro: Viale Giulio Cesare. Llega 15 min antes." },
+        { time: "08:30",    icon: "🎨", text: "Visita guiada por los Museos Vaticanos y la Capilla Sixtina. Guía en español · 2h30m–3h · 2 adultos, David Hurtado." },
         { time: "Mediodía", icon: "⛪", text: "Basílica de San Pedro con calma, sin las filas del domingo — sube a la cúpula." },
         { time: "Tarde",    icon: "🛍️", text: "Tarde libre en Prati — Via Cola di Rienzo (tiendas) o descanso." },
         { time: "Noche",    icon: "🍕", text: "Pizza en el barrio Prati." },
@@ -535,16 +535,16 @@ const DATA = {
     },
     {
       city: "roma",
-      name: "Museos Vaticanos + Capilla Sixtina",
+      name: "Visita guiada por los Museos Vaticanos y la Capilla Sixtina",
       date: "2026-09-28",
-      time: "8:00 AM",
-      confirmation: null,
-      price: "€25",
-      status: "unavailable",
-      priority: "urgent",
-      booking_deadline: "Disponible ~29 jul",
-      booking_url: "https://www.museivaticani.va",
-      notes: "Abre reservas 60 días antes (≈29 jul). Ponle alarma al teléfono."
+      time: "08:30",
+      confirmation: "A41377056",
+      price: "4,936.45 MXN (2 adultos)",
+      status: "confirmed",
+      priority: "normal",
+      booking_deadline: null,
+      booking_url: null,
+      notes: "2 adultos · 2h30m–3h · Guía en español · Punto de encuentro: Viale Giulio Cesare (Civitatis) · Proveedor: Tourismotion Tours +39 0692926678."
     },
     // ROMA
     {

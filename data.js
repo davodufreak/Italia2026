@@ -96,9 +96,10 @@ const DATA = {
       activities: [
         { time: "Mañana",   icon: "🚄", text: "Tren desde Venecia a Santa Maria Novella." },
         { time: "Mediodía", icon: "🏛️", text: "Mercado Central de San Lorenzo (2° piso)." },
-        { time: "Tarde",    icon: "🌿", text: "Jardines de Boboli." },
-        { time: "Tarde",    icon: "🌉", text: "Ponte Vecchio al atardecer." },
-        { time: "Tarde",    icon: "🌅", text: "Piazzale Michelangelo." },
+        { time: "15:45",    icon: "🎫", text: "Punto de encuentro: entrada del Palacio Pitti (Piazza de' Pitti, 1). Boleto en PDF con código QR listo para escanear." },
+        { time: "16:00",    icon: "🌿", text: "Palacio Pitti + Jardín de Boboli con audioguía (código GYGMX39Q67WW)." },
+        { time: "Tarde",    icon: "🌅", text: "Piazzale Michelangelo al atardecer." },
+        { time: "Tarde",    icon: "🌉", text: "Ponte Vecchio de regreso al centro." },
         { time: "Noche",    icon: "🥩", text: "Cena en el Oltrarno — bistecca alla fiorentina." },
       ]
     },
@@ -167,12 +168,13 @@ const DATA = {
       date: "2026-09-29", weekday: "Mar", city: "roma",
       label: "Roma clásica",
       activities: [
-        { time: "Mañana",   icon: "🏟️", text: "Coliseo al abrir (reserva obligatoria en colosseo.it)." },
-        { time: "Mañana",   icon: "🏛️", text: "Foro Romano y Palatino — misma entrada." },
-        { time: "Mediodía", icon: "🌿", text: "Almuerzo en Testaccio." },
-        { time: "Tarde",    icon: "⛲", text: "Fontana di Trevi (~3-4 PM, mejor luz lateral)." },
-        { time: "Tarde",    icon: "🏛️", text: "Panteón — la cúpula con el óculo." },
-        { time: "Noche",    icon: "🎭", text: "Piazza Navona — fuente de los Cuatro Ríos de Bernini." },
+        { time: "09:15",    icon: "🎫", text: "Punto de encuentro: Piazza della Minerva, junto a la estatua del elefante (staff de Crown Tours, playera morada), a la izquierda de las escaleras de Santa Maria sopra Minerva. Llega 15 min antes." },
+        { time: "09:30",    icon: "🏛️", text: "Panteón con audioguía (visita libre, sin guía en vivo) — la cúpula con el óculo. 2 adultos." },
+        { time: "Mañana",   icon: "⛲", text: "Fontana di Trevi (5-10 min caminando desde el Panteón)." },
+        { time: "Mediodía", icon: "🌿", text: "Almuerzo en Monti, de camino al Coliseo." },
+        { time: "14:50",    icon: "📍", text: "Punto de encuentro: salida de abajo del metro Colosseo (línea B), Via dei Fori Imperiali, entre el kiosco verde y los tuk tuks. Busca el cartel de Tourismotion. Llega 10 min antes." },
+        { time: "15:00",    icon: "🏟️", text: "Tour por el Coliseo con acceso a la Arena + Foro Romano y Palatino. Guía en español · 2 adultos · el horario de inicio puede variar hasta 3h según el aforo del Coliseo." },
+        { time: "Noche",    icon: "🎭", text: "Piazza Navona — fuente de los Cuatro Ríos de Bernini, cena y paseo nocturno." },
       ]
     },
     {
@@ -468,6 +470,19 @@ const DATA = {
     // FLORENCIA
     {
       city: "florencia",
+      name: "Florencia: entrada al Palacio Pitti y al Jardín de Boboli con audioguía",
+      date: "2026-09-23",
+      time: "16:00",
+      confirmation: "GYGMX39Q67WW",
+      price: null,
+      status: "confirmed",
+      priority: "normal",
+      booking_deadline: null,
+      booking_url: null,
+      notes: "Reservado · Pago programado para el 20 sep 2026 (GetYourGuide) · Llega a Piazza de' Pitti, 1 antes de las 15:45 con el boleto en PDF (código QR) listo para escanear · El PDF llega ~1 día antes de la visita."
+    },
+    {
+      city: "florencia",
       name: "Florencia + Uffizi + Academia (tour guiado)",
       date: "2026-09-24",
       time: "09:45",
@@ -562,16 +577,16 @@ const DATA = {
     // ROMA
     {
       city: "roma",
-      name: "Coliseo + Foro Romano + Palatino",
+      name: "Tour por el Coliseo con acceso a la Arena + Foro y Palatino",
       date: "2026-09-29",
-      time: null,
-      confirmation: null,
-      price: "€20",
-      status: "unavailable",
-      priority: "urgent",
-      booking_deadline: "Disponible ~30 ago",
-      booking_url: "https://ticketing.colosseo.it",
-      notes: "Abre reservas 30 días antes (≈30 ago)."
+      time: "15:00",
+      confirmation: "A41400120",
+      price: "€198 (2 adultos)",
+      status: "confirmed",
+      priority: "normal",
+      booking_deadline: null,
+      booking_url: null,
+      notes: "2 adultos · Guía en español · Punto de encuentro: metro Colosseo (línea B), salida Via dei Fori Imperiali, entre el kiosco verde y los tuk tuks — busca el cartel de Tourismotion · El horario de inicio puede variar hasta 3h según el aforo del Coliseo · Proveedor: Tourismotion Roma +39 0692926678 · Civitatis."
     },
     {
       city: "roma",
@@ -588,16 +603,16 @@ const DATA = {
     },
     {
       city: "roma",
-      name: "Panteón (franja horaria)",
+      name: "Visita guiada al Panteón con entradas reservadas",
       date: "2026-09-29",
-      time: null,
-      confirmation: null,
-      price: "€7",
-      status: "pending",
-      priority: "low",
-      booking_deadline: "Flexible",
-      booking_url: "https://www.panteonnazionale.it",
-      notes: "Reserva recomendada pero hay disponibilidad con varios días de antelación."
+      time: "09:30",
+      confirmation: "1444410575",
+      price: null,
+      status: "confirmed",
+      priority: "normal",
+      booking_deadline: null,
+      booking_url: null,
+      notes: "2 adultos, José David Hurtado Santiago · Audioguía en español (visita libre, sin guía en vivo) · Punto de encuentro: Piazza della Minerva, junto a la estatua del elefante (staff Crown Tours, playera morada) · Confirmación del proveedor: PGGGKSMP · Viator."
     },
   ],
 

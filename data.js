@@ -96,9 +96,10 @@ const DATA = {
       activities: [
         { time: "Mañana",   icon: "🚄", text: "Tren desde Venecia a Santa Maria Novella." },
         { time: "Mediodía", icon: "🏛️", text: "Mercado Central de San Lorenzo (2° piso)." },
-        { time: "Tarde",    icon: "🌿", text: "Jardines de Boboli." },
-        { time: "Tarde",    icon: "🌉", text: "Ponte Vecchio al atardecer." },
-        { time: "Tarde",    icon: "🌅", text: "Piazzale Michelangelo." },
+        { time: "15:45",    icon: "🎫", text: "Punto de encuentro: entrada del Palacio Pitti (Piazza de' Pitti, 1). Boleto en PDF con código QR listo para escanear." },
+        { time: "16:00",    icon: "🌿", text: "Palacio Pitti + Jardín de Boboli con audioguía (código GYGMX39Q67WW)." },
+        { time: "Tarde",    icon: "🌅", text: "Piazzale Michelangelo al atardecer." },
+        { time: "Tarde",    icon: "🌉", text: "Ponte Vecchio de regreso al centro." },
         { time: "Noche",    icon: "🥩", text: "Cena en el Oltrarno — bistecca alla fiorentina." },
       ]
     },
@@ -467,6 +468,19 @@ const DATA = {
       notes: "2 viajeros · 3 horas · Punto de encuentro: Galleria Vittorio Emanuele II, 11/12 · Presentar reserva en el móvil."
     },
     // FLORENCIA
+    {
+      city: "florencia",
+      name: "Florencia: entrada al Palacio Pitti y al Jardín de Boboli con audioguía",
+      date: "2026-09-23",
+      time: "16:00",
+      confirmation: "GYGMX39Q67WW",
+      price: null,
+      status: "confirmed",
+      priority: "normal",
+      booking_deadline: null,
+      booking_url: null,
+      notes: "Reservado · Pago programado para el 20 sep 2026 (GetYourGuide) · Llega a Piazza de' Pitti, 1 antes de las 15:45 con el boleto en PDF (código QR) listo para escanear · El PDF llega ~1 día antes de la visita."
+    },
     {
       city: "florencia",
       name: "Florencia + Uffizi + Academia (tour guiado)",

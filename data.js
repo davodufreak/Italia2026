@@ -16,11 +16,6 @@ const DATA = {
   },
 
   // ── Ciudades ──────────────────────────────────────────────
-  // photo:   URL opcional de una foto editorial del destino (se usa en el
-  //          hero de "Próxima parada" del Resumen). Si es null, se muestra
-  //          un fondo de cristal degradado con el emoji de la ciudad.
-  // climate: nota de referencia sobre el clima habitual en esas fechas
-  //          (no es un pronóstico en vivo).
   cities: [
     { id: "zurich",       name: "Zúrich",       country: "Suiza",  emoji: "🏔️", color: "var(--zurich)",       nights: 2, dates: "18–19 sep", photo: "img/zurich.jpg", climate: "12–20°C · otoño fresco, lleva capas" },
     { id: "milan",        name: "Milán",         country: "Italia", emoji: "🏛️", color: "var(--milan)",        nights: 1, dates: "20 sep",    photo: "img/milan.jpg", climate: "15–24°C · templado, posible lluvia breve" },
@@ -133,14 +128,14 @@ const DATA = {
         { time: "Tarde",    icon: "🚢", text: "Barca entre pueblos para ver los acantilados." },
         { time: "Tarde",    icon: "🌅", text: "Riomaggiore al atardecer." },
         { time: "Noche",    icon: "🌙", text: "Última noche costera — cena temprana." },
-        { time: "Antes de dormir", icon: "🧳", text: "Maleta lista y despertador temprano — mañana toca madrugar para llegar a Roma a tiempo para la misa dominical en el Vaticano." },
+        { time: "Antes de dormir", icon: "🧳", text: "Maleta lista — mañana toca madrugar: tomas el Cinque Terre Express de Vernazza a La Spezia para alcanzar el tren de las 6:18. Confirma el horario exacto del domingo unos días antes (corre frecuente, cada 20-30 min, pero verifica el primero disponible)." },
       ]
     },
     {
       date: "2026-09-27", weekday: "Dom", city: "roma",
       label: "Domingo en el Vaticano — Misa",
       activities: [
-        { time: "05:45",    icon: "⏰", text: "Salida de Vernazza — primer regional a La Spezia Centrale." },
+        { time: "~05:00",   icon: "🚂", text: "Cinque Terre Express: Vernazza → La Spezia Centrale (~20 min). Confirma el horario exacto de ese domingo unos días antes para tomar el primero que conecte cómodo con el tren de las 6:18." },
         { time: "06:18",    icon: "🚄", text: "FrecciaBianca 8601 La Spezia Centrale → Roma Termini, llega 10:03. Confirmado (PNR UF35CN)." },
         { time: "10:15",    icon: "🧳", text: "Deja el equipaje en consigna de Termini o directo al hospedaje si el check-in lo permite — viaja ligero." },
         { time: "10:20",    icon: "🚇", text: "Metro Línea A, Termini → Ottaviano-San Pietro (~20 min), hacia la Plaza de San Pedro." },
@@ -202,10 +197,6 @@ const DATA = {
   ],
 
   // ── Hospedajes ────────────────────────────────────────────
-  // status: "confirmed" | "pending"
-  // photo:  URL opcional de una foto del hospedaje (hero de "Próxima
-  //         parada"). Si es null, se muestra una superficie de cristal
-  //         con el ícono de la ciudad.
   accommodations: [
     {
       city: "zurich",
@@ -288,8 +279,6 @@ const DATA = {
   ],
 
   // ── Traslados ─────────────────────────────────────────────
-  // tipo: "flight" | "train"
-  // status: "confirmed" | "pending"
   transports: [
     {
       type: "flight",
@@ -413,7 +402,7 @@ const DATA = {
       class: "Super Economy · 2ª classe",
       confirmation: "UF35CN",
       status: "confirmed",
-      notes: "2 pasajeros: Luis Angel Martinez Rodriguez (asiento 15A) y Jose David Hurtado Santiago (asiento 16A). Eur 16.90 c/u. Código de cambio de reserva (CP): 912301 / 912302. Código de entrada: 2941433409 / 2941433410. Sale de Vernazza ~05:45 en el regional a La Spezia Centrale para tomar este tren y llegar a tiempo a la misa dominical del Vaticano (12:30 PM)."
+      notes: "2 pasajeros: Luis Angel Martinez Rodriguez (asiento 15A) y Jose David Hurtado Santiago (asiento 16A). Eur 16.90 c/u. Código de cambio de reserva (CP): 912301 / 912302. Código de entrada: 2941433409 / 2941433410. Conexión: Cinque Terre Express desde Vernazza (~05:00) — verifica el horario exacto del domingo unos días antes."
     },
     {
       type: "flight",
@@ -436,10 +425,7 @@ const DATA = {
   ],
 
   // ── Entradas y Tickets ────────────────────────────────────
-  // status: "confirmed" | "pending" | "unavailable"
-  // priority: "urgent" | "normal" | "low"
   tickets: [
-    // ZÚRICH
     {
       city: "zurich",
       name: "Lindt Home of Chocolate",
@@ -453,7 +439,6 @@ const DATA = {
       booking_url: "https://www.lindt-home-of-chocolate.com",
       notes: "Entrada por franja horaria. En Kilchberg — tren S8/S24 desde Zürich HB (~15 min). Incluye degustación."
     },
-    // MILÁN
     {
       city: "milan",
       name: "Visita guiada por Milán + La Última Cena",
@@ -467,7 +452,6 @@ const DATA = {
       booking_url: null,
       notes: "2 viajeros · 3 horas · Punto de encuentro: Galleria Vittorio Emanuele II, 11/12 · Presentar reserva en el móvil."
     },
-    // FLORENCIA
     {
       city: "florencia",
       name: "Florencia: entrada al Palacio Pitti y al Jardín de Boboli con audioguía",
@@ -507,7 +491,6 @@ const DATA = {
       booking_url: "https://duomo.firenze.it",
       notes: "Incluye Cúpula + Bautisterio + Museo + Cripta. Nominativo. Pendiente de reubicar en el itinerario: el jueves 24 ahora está ocupado por el tour de 9:45 a 16:45."
     },
-    // VENECIA
     {
       city: "venecia",
       name: "Excursión a Murano y Burano + Visita a un taller de vidrio",
@@ -532,9 +515,8 @@ const DATA = {
       priority: "normal",
       booking_deadline: "Antes del 28 ago",
       booking_url: "https://www.visitmuve.it",
-      notes: "€5 más barato si se compra con +30 días de antelación."
+      notes: "€5 más barato si se compra con +30 días de antelación. ⚠️ Esta fecha límite ya pasó — verifica precio/disponibilidad actual."
     },
-    // VATICANO
     {
       city: "roma",
       name: "Misa dominical — Basílica de San Pedro",
@@ -574,7 +556,6 @@ const DATA = {
       booking_url: null,
       notes: "2 adultos · 1.5 horas · Guía en español · Subida a la cúpula solo por ascensor (lift only) · GetYourGuide."
     },
-    // ROMA
     {
       city: "roma",
       name: "Tour por el Coliseo con acceso a la Arena + Foro y Palatino",

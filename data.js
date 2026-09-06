@@ -479,19 +479,6 @@ const DATA = {
       notes: "2 adultos · 7 horas · Guía en español · Punto de encuentro: Via degli Avelli, 20 (Civitatis) · Incluye entradas a Uffizi y Academia."
     },
     {
-      city: "florencia",
-      name: "Cúpula de Brunelleschi (Brunelleschi Pass)",
-      date: "2026-09-24",
-      time: null,
-      confirmation: null,
-      price: "~€30",
-      status: "pending",
-      priority: "urgent",
-      booking_deadline: "Reservar YA",
-      booking_url: "https://duomo.firenze.it",
-      notes: "Incluye Cúpula + Bautisterio + Museo + Cripta. Nominativo. Pendiente de reubicar en el itinerario: el jueves 24 ahora está ocupado por el tour de 9:45 a 16:45."
-    },
-    {
       city: "venecia",
       name: "Excursión a Murano y Burano + Visita a un taller de vidrio",
       date: "2026-09-22",

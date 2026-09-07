@@ -109,25 +109,30 @@ const DATA = {
     },
     {
       date: "2026-09-25", weekday: "Vie", city: "cinque_terre",
-      label: "Llegada a los cinco pueblos",
+      label: "Llegada + Monterosso y playa",
       activities: [
         { time: "07:53",    icon: "🚄", text: "Regionale 18357: Firenze S.M.N. → Pisa Centrale (llega 09:04)." },
         { time: "09:24",    icon: "🚆", text: "InterCity Notte 89512: Pisa Centrale → La Spezia Centrale (llega 10:37)." },
-        { time: "Mediodía", icon: "🏘️", text: "Regional La Spezia → Vernazza y check-in." },
-        { time: "Tarde",    icon: "🌊", text: "Primer baño en el mar (~23°C en septiembre)." },
-        { time: "Tarde",    icon: "🚂", text: "Tren a Manarola al atardecer." },
-        { time: "Noche",    icon: "🐟", text: "Cena: anchoas locales, trofie al pesto, Sciacchetrà." },
+        { time: "~11:00",   icon: "🏘️", text: "Regional La Spezia → Vernazza. Comprar ahí el pase de tren Cinque Terre." },
+        { time: "~11:20",   icon: "🧳", text: "Dejar maletas en el Airbnb (check-in formal 2:00 PM, pero el anfitrión suele recibir equipaje antes)." },
+        { time: "~11:45",   icon: "🚂", text: "Tren Vernazza → Monterosso (~4 min)." },
+        { time: "12:00",    icon: "⛪", text: "Centro histórico de Monterosso — iglesia de San Giovanni Battista." },
+        { time: "13:00",    icon: "🍝", text: "Almuerzo en Monterosso." },
+        { time: "14:00–17:00", icon: "🌊", text: "Playa de Monterosso — la única de arena de los 5 pueblos. Estatua del Gigante (Neptuno), nado y descanso." },
+        { time: "~17:30",   icon: "🚂", text: "Tren de regreso a Vernazza." },
+        { time: "18:40",    icon: "🥾", text: "Salir del centro de Vernazza hacia Ristorante La Torre (Località Preteccia) — es una subida, calcula ~15-20 min caminando." },
+        { time: "19:00",    icon: "🍷", text: "Cena en Ristorante La Torre — terraza en lo alto con vista panorámica de Vernazza y el mar. Llegar a las 19:00 para ver caer el sol (~19:13) y el resplandor de colores poco después. Pesto, spaghetti mari, pulpo. ⚠️ Reserva por teléfono: +39 331 883 6610." },
       ]
     },
     {
       date: "2026-09-26", weekday: "Sáb", city: "cinque_terre",
-      label: "Senderismo y aldeas",
+      label: "Corniglia, Riomaggiore, Vía dell'Amore y Manarola",
       activities: [
-        { time: "Mañana",   icon: "🥾", text: "Sentiero Azzurro: tramo Monterosso–Vernazza (~2h)." },
-        { time: "Mediodía", icon: "🍋", text: "Corniglia — granita de limón obligatoria." },
-        { time: "Tarde",    icon: "🚢", text: "Barca entre pueblos para ver los acantilados." },
-        { time: "Tarde",    icon: "🌅", text: "Riomaggiore al atardecer." },
-        { time: "Noche",    icon: "🌙", text: "Última noche costera — cena temprana." },
+        { time: "Mañana",   icon: "🍋", text: "Tren a Corniglia — bus local hasta el pueblo elevado (único a 100m sobre el mar). Granita de limón obligatoria." },
+        { time: "Mediodía", icon: "🏘️", text: "Tren a Riomaggiore — casas escalonadas y puerto pintoresco." },
+        { time: "Tarde",    icon: "🚶", text: "Vía dell'Amore: caminata costera de Riomaggiore a Manarola (⚠️ requiere reserva aparte, no incluida en el pase de tren)." },
+        { time: "Tarde-noche", icon: "🌅", text: "Manarola al atardecer — el pueblo más fotogénico. Cono de pescado frito, o Nessun Dorma si hay lugar (si no, hay rincones cercanos con vistas igual de buenas)." },
+        { time: "Noche",    icon: "🚂", text: "Tren de regreso a Vernazza — última noche." },
         { time: "Antes de dormir", icon: "🧳", text: "Maleta lista — mañana toca madrugar: tomas el Cinque Terre Express de Vernazza a La Spezia para alcanzar el tren de las 6:18. Confirma el horario exacto del domingo unos días antes (corre frecuente, cada 20-30 min, pero verifica el primero disponible)." },
       ]
     },
@@ -426,6 +431,19 @@ const DATA = {
 
   // ── Entradas y Tickets ────────────────────────────────────
   tickets: [
+    {
+      city: "cinque_terre",
+      name: "Cena en Ristorante La Torre (Località Preteccia, Vernazza)",
+      date: "2026-09-25",
+      time: "19:00",
+      confirmation: null,
+      price: "€€ (cover charge por persona)",
+      status: "pending",
+      priority: "urgent",
+      booking_deadline: "Reservar YA — sunset dinner muy popular",
+      booking_url: "https://camerelatorre.com/ristorante_bar.html",
+      notes: "Reserva por teléfono o WhatsApp: +39 331 883 6610. En lo alto del pueblo — subida de ~15-20 min desde el centro de Vernazza, salir con tiempo. Atardecer ~19:13, llegar 19:00. Especialidades: pesto, spaghetti mari, pulpo."
+    },
     {
       city: "zurich",
       name: "Lindt Home of Chocolate",

@@ -72,6 +72,8 @@ const DATA = {
         { time: "Mediodía", icon: "⛵", text: "Vaporetto (línea 1) por el Gran Canal hasta San Marcos." },
         { time: "Tarde",    icon: "🏛️", text: "Piazza San Marco — Basílica y exterior del Palazzo Ducale." },
         { time: "Tarde",    icon: "🌊", text: "Paseo por el Rialto." },
+        { time: "17:00",    icon: "🎫", text: "Punto de encuentro: Campo San Zaccaria, 4683/G. Llega 15 min antes (A41421812)." },
+        { time: "17:15",    icon: "🚣", text: "Paseo en góndola por el Puente de los Suspiros y los canales de Venecia (25-30 min, 2 viajeros)." },
         { time: "Noche",    icon: "🌙", text: "Cena en Dorsoduro o Cannaregio." },
       ]
     },
@@ -495,6 +497,19 @@ const DATA = {
       booking_deadline: null,
       booking_url: null,
       notes: "2 adultos · 7 horas · Guía en español · Punto de encuentro: Via degli Avelli, 20 (Civitatis) · Incluye entradas a Uffizi y Academia."
+    },
+    {
+      city: "venecia",
+      name: "Paseo en góndola por el Puente de los Suspiros y los canales de Venecia",
+      date: "2026-09-21",
+      time: "17:15",
+      confirmation: "A41421812",
+      price: null,
+      status: "confirmed",
+      priority: "normal",
+      booking_deadline: null,
+      booking_url: null,
+      notes: "2 viajeros · 25-30 min · Punto de encuentro: Campo San Zaccaria, 4683/G · Presentar reserva en el móvil o impresa."
     },
     {
       city: "venecia",

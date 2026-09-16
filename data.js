@@ -29,24 +29,24 @@ const DATA = {
   days: [
     {
       date: "2026-09-18", weekday: "Vie", city: "zurich",
-      label: "Llegada + Lindt",
+      label: "Llegada a Zúrich",
       activities: [
         { time: "10:05",    icon: "✈️", text: "Aterrizaje en Zúrich (ZRH). Migración y equipaje ~1h." },
-        { time: "11:15",    icon: "🚆", text: "Tren ZRH → Zürich HB (13 min, sale cada 10 min). Deja maletas en el Airbnb o en consigna de HB." },
-        { time: "12:30",    icon: "🥨", text: "Almuerzo rápido cerca de la estación." },
-        { time: "13:30",    icon: "🍫", text: "Lindt Home of Chocolate (Kilchberg) — fuente de chocolate de 9 m, museo y degustación. Tren S8/S24 hasta Kilchberg (~15 min). Reserva franja horaria online." },
-        { time: "15:30",    icon: "🏠", text: "Check-in en Brauerstrasse 42 (a partir de las 3:00 PM). Descanso." },
-        { time: "17:30",    icon: "🚶", text: "Paseo por el Altstadt y Lindenhof al atardecer." },
+        { time: "11:15",    icon: "🚆", text: "Tren ZRH → Zürich HB (13 min, sale cada 10 min). Deja maletas en consigna de HB — el check-in del Airbnb es hasta las 3 PM." },
+        { time: "11:45",    icon: "🚶", text: "Paseo corto por el Altstadt hasta el Lindenhof (mirador sobre el río Limmat). Ritmo suave tras el vuelo nocturno." },
+        { time: "12:30",    icon: "☕", text: "Café con vista al lago en Bürkliplatz." },
+        { time: "13:15",    icon: "🥨", text: "Almuerzo ligero cerca de la estación." },
+        { time: "15:00",    icon: "🏠", text: "Check-in en Brauerstrasse 42 (a partir de las 3:00 PM). Descanso." },
         { time: "Noche",    icon: "🍷", text: "Cena en el barrio de Niederdorf." },
       ]
     },
     {
       date: "2026-09-19", weekday: "Sáb", city: "zurich",
-      label: "Día completo",
+      label: "Tour: ciudad + crucero + Lindt",
       activities: [
-        { time: "Mañana",   icon: "⛪", text: "Grossmünster y Fraumünster — vitrales de Marc Chagall." },
-        { time: "Mediodía", icon: "🏛️", text: "Bahnhofstrasse hasta el lago. Almuerzo en Markthalle." },
-        { time: "Tarde",    icon: "⛵", text: "Crucero corto por el lago (~1 hora)." },
+        { time: "09:45",    icon: "🎫", text: "Punto de encuentro: aparcamiento de autobuses Sihlquai (Limmatstrasse 2, frente al Hotel Fred) — 10 min a pie desde Zürich HB, o tranvías 4/6/13 hasta la parada Sihlquai/HB. Regístrate en las taquillas de \"Best of Switzerland Tours\" (A41401431)." },
+        { time: "10:00",    icon: "🚌", text: "Tour por Zúrich + Paseo en barco + Entrada al Museo Lindt — recorrido guiado en inglés por el centro histórico, crucero por el lago y visita al Lindt Home of Chocolate (Kilchberg) incluida." },
+        { time: "Tarde",    icon: "🎟️", text: "El tour termina en Zürich HB, donde entregan un billete de transporte público válido 24h. Tiempo libre en Bahnhofstrasse o el lago con ese ticket." },
         { time: "Noche",    icon: "🌆", text: "Fondue o raclette en el casco histórico." },
       ]
     },
@@ -448,16 +448,16 @@ const DATA = {
     },
     {
       city: "zurich",
-      name: "Lindt Home of Chocolate",
-      date: "2026-09-18",
-      time: "13:30",
-      confirmation: null,
-      price: "~CHF 15",
-      status: "pending",
-      priority: "low",
-      booking_deadline: "Flexible",
-      booking_url: "https://www.lindt-home-of-chocolate.com",
-      notes: "Entrada por franja horaria. En Kilchberg — tren S8/S24 desde Zürich HB (~15 min). Incluye degustación."
+      name: "Tour por Zúrich + Paseo en barco + Entrada al Museo Lindt",
+      date: "2026-09-19",
+      time: "10:00",
+      confirmation: "A41401431",
+      price: "212,58 € (2 adultos)",
+      status: "confirmed",
+      priority: "normal",
+      booking_deadline: null,
+      booking_url: null,
+      notes: "2 adultos · Guía en inglés · Pagado por completo (Civitatis, proveedor Best Of Switzerland +41 44 710 50 50) · Punto de encuentro: aparcamiento de autobuses Sihlquai, Limmatstrasse 2 (frente al Hotel Fred), llegar 15 min antes y registrarse en taquillas \"Best of Switzerland Tours\" · Incluye recorrido por la ciudad, crucero por el lago y entrada al Lindt Home of Chocolate · Termina en Zürich HB con ticket de transporte público válido 24h · Ref. proveedor: 5VSDPBFM."
     },
     {
       city: "milan",

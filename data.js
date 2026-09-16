@@ -32,9 +32,11 @@ const DATA = {
       label: "Llegada a Zúrich",
       activities: [
         { time: "10:05",    icon: "✈️", text: "Aterrizaje en Zúrich (ZRH). Migración y equipaje ~1h." },
-        { time: "11:15",    icon: "🚆", text: "Tren ZRH → Zürich HB (13 min, sale cada 10 min). Deja maletas en consigna de HB si el Airbnb no recibe equipaje antes de las 3 PM." },
-        { time: "15:00",    icon: "🏠", text: "Check-in en Brauerstrasse 42 (a partir de las 3:00 PM)." },
-        { time: "17:30",    icon: "🚶", text: "Paseo por el Altstadt y Lindenhof al atardecer." },
+        { time: "11:15",    icon: "🚆", text: "Tren ZRH → Zürich HB (13 min, sale cada 10 min). Deja maletas en consigna de HB — el check-in del Airbnb es hasta las 3 PM." },
+        { time: "11:45",    icon: "🚶", text: "Paseo corto por el Altstadt hasta el Lindenhof (mirador sobre el río Limmat). Ritmo suave tras el vuelo nocturno." },
+        { time: "12:30",    icon: "☕", text: "Café con vista al lago en Bürkliplatz." },
+        { time: "13:15",    icon: "🥨", text: "Almuerzo ligero cerca de la estación." },
+        { time: "15:00",    icon: "🏠", text: "Check-in en Brauerstrasse 42 (a partir de las 3:00 PM). Descanso." },
         { time: "Noche",    icon: "🍷", text: "Cena en el barrio de Niederdorf." },
       ]
     },
